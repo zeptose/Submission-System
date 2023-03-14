@@ -1,0 +1,27 @@
+<% if logged_in? && current_user.role?(:admin)%>
+<br><br>
+<% unless @prices.empty? %>
+  <div class="card hoverable">
+    <div class="card-content">
+      <span class="card-title">Price History</span>
+    <table>
+      <thead>
+        <tr>
+          <th width="120">Date</th>
+          <th width="100">Price</th>
+        </tr>
+      </thead>
+      <tbody>
+
+      <% for pp in @prices%>
+        <tr>
+          <td><%= pp.start_date.strftime('%B %e, %Y') %></td>
+          <td><%= number_to_currency pp.price %></td>
+        </tr>
+      <% end %>
+    </table>
+       </div>
+  </div>
+  </div>
+  <% end %>
+<% end %>

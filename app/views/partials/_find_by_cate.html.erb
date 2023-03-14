@@ -1,0 +1,6 @@
+<h4>Find by Category</h4>
+<p> <%= link_to "All", items_path %></p>
+<% for category in @categories %>
+    <p><%= link_to category.name, items_path(category: category) %></p>
+<% end %>
+<br />

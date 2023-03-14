@@ -1,0 +1,16 @@
+<nav id="nav">
+<div class="card-panel brown lighten-2">
+  <div class="container">
+    <ul class="left hide-on-med-and-down">
+        <li><%= link_to 'Customers', customers_path%></li>
+        <li><%= link_to 'Employees', users_path%></li>
+        <li><%= link_to 'Orders', orders_path%></li>
+        <li><%= link_to 'Items', items_path %></li>
+      </ul>
+    <ul class="right">
+      <li><%= link_to 'Logout', logout_path%></li>
+    </ul>
+    <div class="welcome-text" align="right">Welcome, <%= current_user.username.capitalize %></div>
+  </div>
+  </div>
+</nav>

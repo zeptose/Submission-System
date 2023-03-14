@@ -1,0 +1,23 @@
+<nav id="nav">
+  <div class="card-panel brown lighten-2">
+  <div class="container">
+    <ul class="left hide-on-med-and-down">
+      <li><%= link_to 'My Account', customer_path(current_user.customer) %></li>
+      <li><%= link_to 'My Orders', orders_path %></li>
+      <li><%= link_to 'Items', items_path %></li>
+      <% if session[:cart].nil? || session[:cart].empty?%>
+        <li><%= link_to "View Cart", view_cart_path %></li>
+      <% else%>
+        <li><%= link_to "View Cart(#{session[:cart].size})", view_cart_path%></li>
+      <%end %>
+    </ul>
+    <ul class="right">
+      <li><%= link_to view_cart_path do %>
+            <i class="large material-icons left">shopping_cart</i>
+          <% end %></li>
+      <li><%= link_to 'Logout', logout_path %></li>
+    </ul>
+    <div class="welcome-text" align="right">Welcome, <%= current_user.customer.proper_name%></div>
+  </div>
+  </div>
+</nav>
