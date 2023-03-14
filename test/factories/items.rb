@@ -1,10 +1,10 @@
 FactoryBot.define do
   factory :item do
-    name { "MyString" }
-    instructions { "MyString" }
-    file { "MyString" }
-    due_date { "MyString" }
-    active { false }
-    category { nil }
+    name { "Application" }
+    instructions { "Please submit the application here." }
+    file { "Fillable File will be here." }
+    due_date { "Due in 2 weeks after registration." }
+    active { true }
+    association :category
   end
 end
