@@ -4,7 +4,7 @@ class Item < ApplicationRecord
   include AppHelpers::Deletions
 
 
-  belongs_to :category
+    belongs_to :category
 
     # Scopes
     scope :alphabetical, -> { order(:name) }
