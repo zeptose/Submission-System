@@ -1,15 +1,13 @@
 <nav id="nav">
-  
   <div class="container">
     <ul class="left hide-on-med-and-down">
-      <li><%= link_to 'Items', items_path %></li>
+        <li><%= link_to 'Home', home_path %></li>
+        <li><%= link_to 'Items', items_path %></li>
     </ul>
+
     <ul class="right">
-       <li> <%= link_to 'Become a Customer', new_customer_path%></li>
-      <li><%= link_to(login_path) do %>
-                &nbsp;Login<i id="login-icon" class="material-icons right">fingerprint</i>&nbsp;
-              <% end %></li>
+      <li><%= link_to 'Become a Customer', new_customer_path %></li>
+      <li><%= link_to 'Login', login_path %></li>
     </ul>
   </div>
 </nav>
-

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>System</title>
+    <title>GVCS Submission System</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,6 +10,22 @@
   </head>
 
   <body>
-    <%= yield %>
+    <%= render :partial => "partials/topbar" %>
+
+    
+    <%= render :partial => "partials/nav_guest" %>
+    
+
+      <div id="main_content">
+      <!-- Main content of template goes here -->
+      <%= render :partial => "partials/flash"%>
+
+      <div id="padded_content">
+        <%= yield %>
+      </div>
+
+      </div>
+
+    <%= render :partial => "partials/footer" %><br>
   </body>
 </html>

@@ -1,0 +1,16 @@
+<div class="card">
+    <div class="card-content">
+
+        <h4>Similar Items</h4>
+
+        <% if logged_in? && current_user.role?(:admin)%>
+            <% for item in Item.for_category(@item.category).alphabetical%>
+                <%= link_to "#{item.name}", item_path(item) %><br>
+            <% end%>
+        <% else %>
+            <% for item in Item.for_category(@item.category).active.alphabetical%>
+                <%= link_to "#{item.name}", item_path(item) %><br>
+            <% end%>
+        <% end %>
+    </div>
+</div>

@@ -1,0 +1,7 @@
+<%= f.input :name, label_html: { class: 'active' } %>
+<%= f.input :category_id, collection: Category.alphabetical, include_blank: false %>
+<%= f.input :description, label_html: { class: 'active' } %>
+<%= f.input :weight, label_html: { class: 'active' } %>
+<%= f.input :color, label_html: { class: 'active' } %>
+<%= f.input :inventory_level, label_html: { class: 'active' } %>
+<%= f.input :reorder_level, label_html: { class: 'active' } %>
