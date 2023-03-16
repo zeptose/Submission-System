@@ -1,0 +1,58 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_self
+ */
+
+ @import "materialize";
+ @import "https://fonts.googleapis.com/icon?family=Material+Icons";
+
+ // this is for the flash notice message
+ #topbar_style {
+    background: #f0e8d3;
+    background-clip: padding-box;
+    padding-top: 10px;
+    padding-left: 20px;
+    padding-bottom: 15px;
+    margin: 0px;
+ }
+
+ #padded_content {
+    padding-left: 20px;
+    margin: 0px;
+ }
+
+ #flash_box {
+    font-weight: bold;
+    text-align: center;
+    background: #fae5aa;
+    font-size: 1.25em;
+    background-clip: padding-box;
+ }
+
+ #nav {
+    background: #1286b8;
+ }
+
+ .btn {
+    background-color: #bf8c15;
+ }
+
+ h4 {
+     font-weight: bold;
+     color: #bf8c15;
+ }
+
+ .container {
+    margin-left: 100px;
+    margin-right: 100px;
+ }

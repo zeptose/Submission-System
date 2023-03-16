@@ -1,6 +1,6 @@
 class CategoriesController < ApplicationController
     before_action :set_category, only: [:edit, :update]
-    before_action :check_login
+    #before_action :check_login
     authorize_resource
   
     def index
@@ -16,7 +16,7 @@ class CategoriesController < ApplicationController
       @category = Category.new(category_params)
       if @category.save
         flash[:notice] = "Successfully added #{@category.name} to the system."
-        redirect_to categories_url
+        redirect_to categories_path
       else
         render action: 'new'
       end
@@ -28,7 +28,7 @@ class CategoriesController < ApplicationController
     def update
       if @category.update_attributes(category_params)
         flash[:notice] = "Successfully updated #{@category}."
-        redirect_to categories_url
+        redirect_to categories_path
       else
         render action: 'edit'
       end

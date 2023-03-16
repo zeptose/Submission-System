@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
 
 
     before_action :set_item, only: [:show, :edit, :update, :destroy, :toggle_active, :toggle_feature]
-    before_action :check_login, only: [:show, :edit, :update]
+    #before_action :check_login, only: [:show, :edit, :update]
     authorize_resource
   
     def index
