@@ -2,9 +2,11 @@ require 'simplecov'
 SimpleCov.start 'rails' do
   add_filter "lib/"
   add_filter "lib/exceptions.rb"
-  # add_filter "app/controllers/api/"
-  # add_filter "app/controllers/api_controller.rb"
-  # add_filter "app/serializers/"
+
+  add_filter "app/controllers/api/"
+  add_filter "app/controllers/api_controller.rb"
+  add_filter "app/serializers/"
+
   # add_filter "app/models/"
   add_filter "app/helpers/"
   add_filter "app/channels/application_cable/"
@@ -20,12 +22,15 @@ require 'minitest/rails'
 require 'minitest/reporters'
 require 'minitest_extensions'
 require 'contexts'
-# require 'logins'
+
+#require 'logins'
 
 class ActiveSupport::TestCase
   # Add more helper methods to be used by all tests here...
   include Contexts
-  # include Logins
+
+  #include Logins
+
 
   # Add the infamous deny method...
   def deny(condition, msg="")

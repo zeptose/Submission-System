@@ -6,24 +6,21 @@ class Item < ApplicationRecord
 
     belongs_to :category
 
-    # Scopes
-    scope :alphabetical, -> { order(:name) }
-    scope :for_category, ->(category) { where(category_id: category.id) }
-    scope :search,       ->(term) { where('name LIKE ? OR description LIKE ?', "%#{term}%", "%#{term}%") }
+  # Scopes
+  scope :alphabetical, -> { order(:name) }
+  scope :for_category, ->(category) { where(category_id: category.id) }
+  scope :search,       ->(term) { where('name LIKE ? OR description LIKE ?', "%#{term}%", "%#{term}%") }
 
 
-    validates :name, presence: true, uniqueness: { case_sensitive: false }
-    validate :category_is_active_in_the_system, on: :create
+  validates :name, presence: true, uniqueness: { case_sensitive: false }
+  validate :category_is_active_in_the_system, on: :create
 
+  # Callbacks
+  before_destroy :cannot_destroy_object
 
-
-    # Callbacks
-    before_destroy :cannot_destroy_object
-
-
-    private
-      def category_is_active_in_the_system
-        is_active_in_system(:category)
-      end
+  private
+    def category_is_active_in_the_system
+      is_active_in_system(:category)
+    end
 
 end

@@ -1,7 +1,7 @@
 class Category < ApplicationRecord
+    include AppHelpers::Deletions
     include AppHelpers::Activeable::InstanceMethods
     extend AppHelpers::Activeable::ClassMethods
-    include AppHelpers::Deletions
 
     # Relationships
     has_many :items
