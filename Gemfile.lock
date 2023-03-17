@@ -168,8 +168,10 @@ GEM
       net-pop
       net-smtp
     marcel (1.0.2)
+
     materialize-sass (1.0.0)
       autoprefixer-rails (>= 6.0.3)
+
     method_source (1.0.0)
     middleware (0.1.0)
     mime-types (3.4.1)
@@ -198,6 +200,7 @@ GEM
     net-smtp (0.3.3)
       net-protocol
     nio4r (2.5.8)
+
     nokogiri (1.13.3-arm64-darwin)
       racc (~> 1.4)
     nokogiri (1.13.3-x86_64-darwin)

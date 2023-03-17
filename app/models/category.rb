@@ -12,7 +12,6 @@ class Category < ApplicationRecord
     # Validations
     validates :name, presence: true, uniqueness: { case_sensitive: false }
     
-
     # Callbacks
     before_destroy :cannot_destroy_object
 
