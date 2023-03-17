@@ -9,12 +9,6 @@
     </ul>
     <ul class="right">
 
-      <% if session[:cart].nil? || session[:cart].size == 0 %>
-        <li><%= link_to "View Cart", view_cart_path %></li>
-      <% else %>
-        <li><%= link_to "View Cart(#{session[:cart].size})", view_cart_path %></li>
-      <% end %>
-
       <li><%= link_to 'Logout', logout_path %></li>
     </ul>
   </div>
