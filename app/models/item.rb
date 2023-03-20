@@ -1,7 +1,8 @@
 class Item < ApplicationRecord
+  # Modules to help with some functionality
+  include AppHelpers::Validations
   include AppHelpers::Activeable::InstanceMethods
   extend AppHelpers::Activeable::ClassMethods
-  include AppHelpers::Deletions
 
 
     belongs_to :category

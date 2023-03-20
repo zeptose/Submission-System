@@ -3,8 +3,7 @@ require 'test_helper'
 # ItemTest for Relationships #############################################
 class ItemTest < ActiveSupport::TestCase
   # Test relationships
-  should belong_to(:categories)
-  
+  should belong_to(:category)
   
   # Test built-in validations
   should validate_presence_of(:name)
