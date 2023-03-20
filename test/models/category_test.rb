@@ -17,13 +17,15 @@ class CategoryScopeMethodTest < ActiveSupport::TestCase
       create_categories
     end
 
+    # testing using the NAMES of the categories, not the actual variable name of the category created
     should "show that scope exists for alphabeticizing categories" do
-      assert_equal %w[Certification InitialPaperwork PlacementRecord_c], Category.alphabetical.all.map(&:name)
+      assert_equal ["Certification Section", "Initial Paperwork", "Placement Record"], Category.alphabetical.all.map(&:name)
     end
 
+    # testing using the NAMES of the categories, not the actual variable name of the category created
     should "show that there are three active categories and one inactive category" do
-      assert_equal %w[InitialPaperwork PlacementRecord_c], Category.active.all.map(&:name).sort
-      assert_equal ["Certification"], Category.inactive.all.map(&:name).sort
+      assert_equal ["Initial Paperwork" , "Placement Record"], Category.active.all.map(&:name).sort
+      assert_equal ["Certification Section"], Category.inactive.all.map(&:name).sort
     end
 
     should "have make_active and make_inactive methods" do
