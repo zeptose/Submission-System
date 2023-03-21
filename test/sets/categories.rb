@@ -1,10 +1,10 @@
 module Contexts
     module Categories
         def create_categories
-            @PlacementRecord_c = FactoryBot.create(:category, name: "Placement Record", active: true)
+            @PlacementRecord_c = FactoryBot.create(:category, name: "Placement Record")
             # initial paperwork is not active, active: false
-            @InitialPaperwork = FactoryBot.create(:category) 
-            @Certification = FactoryBot.create(:category, name: "Certification Section", active: true)
+            @InitialPaperwork = FactoryBot.create(:category, active: false) 
+            @Certification = FactoryBot.create(:category, name: "Certification Section")
         end
 
         def destroy_categories
