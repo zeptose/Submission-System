@@ -1,6 +1,35 @@
 {
   "Minitest": {
     "coverage": {
+      "/mnt/c/Users/annie/OneDrive/Documents/Submission-System/app/models/category.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          null,
+          null,
+          1,
+          null,
+          null,
+          1,
+          null,
+          null,
+          1,
+          null,
+          null
+        ]
+      },
+      "/mnt/c/Users/annie/OneDrive/Documents/Submission-System/app/models/application_record.rb": {
+        "lines": [
+          1,
+          1,
+          null
+        ]
+      },
       "/mnt/c/Users/annie/OneDrive/Documents/Submission-System/app/models/item.rb": {
         "lines": [
           1,
@@ -26,37 +55,8 @@
           null,
           1,
           1,
-          0,
+          13,
           null,
-          null,
-          null
-        ]
-      },
-      "/mnt/c/Users/annie/OneDrive/Documents/Submission-System/app/models/application_record.rb": {
-        "lines": [
-          1,
-          1,
-          null
-        ]
-      },
-      "/mnt/c/Users/annie/OneDrive/Documents/Submission-System/app/models/category.rb": {
-        "lines": [
-          1,
-          1,
-          1,
-          1,
-          null,
-          null,
-          1,
-          null,
-          null,
-          1,
-          null,
-          null,
-          1,
-          null,
-          null,
-          1,
           null,
           null
         ]
@@ -72,7 +72,7 @@
         "branches": {
         }
       },
-      "/Users/jasminenie/Desktop/Submission-System/app/controllers/categories_controller.rb": {
+      "/mnt/c/Users/annie/OneDrive/Documents/Submission-System/app/controllers/categories_controller.rb": {
         "lines": [
           0,
           0,
@@ -124,7 +124,35 @@
         "branches": {
         }
       },
-      "/Users/jasminenie/Desktop/Submission-System/app/controllers/items_controller.rb": {
+      "/mnt/c/Users/annie/OneDrive/Documents/Submission-System/app/controllers/home_controller.rb": {
+        "lines": [
+          0,
+          null,
+          0,
+          0,
+          null,
+          0,
+          0,
+          null,
+          0,
+          0,
+          null,
+          0,
+          0,
+          null,
+          0,
+          0,
+          null,
+          null,
+          0,
+          null,
+          null,
+          null
+        ],
+        "branches": {
+        }
+      },
+      "/mnt/c/Users/annie/OneDrive/Documents/Submission-System/app/controllers/items_controller.rb": {
         "lines": [
           0,
           null,
@@ -199,7 +227,7 @@
         "branches": {
         }
       },
-      "/Users/jasminenie/Desktop/Submission-System/app/controllers/sessions_controller.rb": {
+      "/mnt/c/Users/annie/OneDrive/Documents/Submission-System/app/controllers/sessions_controller.rb": {
         "lines": [
           0,
           0,
@@ -227,36 +255,47 @@
         "branches": {
         }
       },
-      "/Users/jasminenie/Desktop/Submission-System/app/controllers/home_controller.rb": {
+      "/mnt/c/Users/annie/OneDrive/Documents/Submission-System/app/models/ability.rb": {
         "lines": [
-          0,
           null,
-          0,
-          0,
-          null,
-          0,
-          0,
-          null,
-          0,
-          0,
-          null,
-          0,
-          0,
           null,
           0,
           0,
           null,
           null,
-          0,
           null,
           null,
-          null
-        ],
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          0
         ],
         "branches": {
         }
       }
     },
-    "timestamp": 1679375903
+    "timestamp": 1679436040
   }
 }
