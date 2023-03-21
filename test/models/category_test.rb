@@ -24,19 +24,20 @@ class CategoryScopeMethodTest < ActiveSupport::TestCase
 
     # testing using the NAMES of the categories, not the actual variable name of the category created
     should "show that there are three active categories and one inactive category" do
-      assert_equal ["Initial Paperwork" , "Placement Record"], Category.active.all.map(&:name).sort
-      assert_equal ["Certification Section"], Category.inactive.all.map(&:name).sort
+      assert_equal ["Certification Section" , "Placement Record"], Category.active.all.map(&:name).sort
+      assert_equal ["Initial Paperwork"], Category.inactive.all.map(&:name).sort
     end
 
     should "have make_active and make_inactive methods" do
       assert @PlacementRecord_c.active
       @PlacementRecord_c.make_inactive
-      @PlacementRecord.reload
+      @PlacementRecord_c.reload
+      assert !@PlacementRecord_c.active, "#{@PlacementRecord_c.to_yaml}"
       
       deny @PlacementRecord_c.active
       @PlacementRecord_c.make_active
-      @PlacementRecord.reload
-      assert @PlacementRecord.active
+      @PlacementRecord_c.reload
+      assert @PlacementRecord_c.active
     end
 
   end

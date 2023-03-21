@@ -5,7 +5,7 @@ class CreateItems < ActiveRecord::Migration[5.2]
       t.string :instructions
       t.string :file
       t.string :due_date
-      t.boolean :active
+      t.boolean :active, default: true
       t.references :category, foreign_key: true
 
       t.timestamps

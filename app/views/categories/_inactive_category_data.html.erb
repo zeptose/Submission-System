@@ -13,11 +13,11 @@
                         <th>Category Name</th>
                         <th>Number of Form Items</th>
                     </thead>
-                    <% for item in @inactive_categories %>
-                        <% if item.inactive?%>
+                    <% for category in @inactive_categories %>
+                        <% if category.inactive?%>
                             <tr>
-                                <td><%= link_to "#{item.name}", item_path(item)%></td>
-                                <td><%= item.category.items.size %> </td>
+                                <td><%= link_to "#{category.name}", category_path(category)%></td>
+                                <td><%= category.category.items.size %> </td>
                             </tr>
                         <% end %>
                     <% end %>
