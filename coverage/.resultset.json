@@ -1,35 +1,6 @@
 {
   "Minitest": {
     "coverage": {
-      "/mnt/c/Users/annie/OneDrive/Documents/Submission-System/app/models/category.rb": {
-        "lines": [
-          1,
-          1,
-          1,
-          1,
-          null,
-          null,
-          1,
-          null,
-          null,
-          1,
-          null,
-          null,
-          1,
-          null,
-          null,
-          1,
-          null,
-          null
-        ]
-      },
-      "/mnt/c/Users/annie/OneDrive/Documents/Submission-System/app/models/application_record.rb": {
-        "lines": [
-          1,
-          1,
-          null
-        ]
-      },
       "/mnt/c/Users/annie/OneDrive/Documents/Submission-System/app/models/item.rb": {
         "lines": [
           1,
@@ -55,8 +26,37 @@
           null,
           1,
           1,
-          29,
+          13,
           null,
+          null,
+          null
+        ]
+      },
+      "/mnt/c/Users/annie/OneDrive/Documents/Submission-System/app/models/application_record.rb": {
+        "lines": [
+          1,
+          1,
+          null
+        ]
+      },
+      "/mnt/c/Users/annie/OneDrive/Documents/Submission-System/app/models/category.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          null,
+          null,
+          1,
+          null,
+          null,
+          1,
+          null,
+          null,
+          1,
           null,
           null
         ]
@@ -296,6 +296,6 @@
         }
       }
     },
-    "timestamp": 1679326442
+    "timestamp": 1679375903
   }
 }

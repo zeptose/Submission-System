@@ -1,17 +1,19 @@
 module Contexts
     module Items
         def create_items
-            @Application = FactoryBot.create(:item, name: "Application", active: true, 
+            @Application = FactoryBot.create(:item, name: "Application", active: false, 
                 category: @InitialPaperwork)
 
-            @InformationalInterview = FactoryBot.create(
-                :item, 
-                name: "Informational Interview",
-                instructions: "Please wait until we contact you for interview details.",
-                due_date: "Due in 3 months after registration.", 
-                active: true,
-                category: @InitialPaperwork)
+            # @InformationalInterview = FactoryBot.create(
+            #     :item, 
+            #     name: "Informational Interview",
+            #     instructions: "Please wait until we contact you for interview details.",
+            #     due_date: "Due in 3 months after registration.", 
+            #     active: true,
+            #     category: @InitialPaperwork)
 
+            # placement record i stands for the item part
+            # placement record c stands for the item category
             @PlacementRecord_i = FactoryBot.create(
                 :item, 
                 name: "Placement Record", 
