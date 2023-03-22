@@ -15,7 +15,7 @@ Rails.application.routes.draw do
    get 'logout', to: 'sessions#destroy', as: :logout
  
    resources :categories
-   resources :items, except: [:destroy, :index]
+   resources :items, except: [:destroy, :index] # in the future, items should be destroyed if there are no submissions attached
 
    # NOTE: please change this to foster parent and go to nav view to change the link
    resources :customer

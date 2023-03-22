@@ -13,7 +13,7 @@
                     <% for item in @category_items %>
                         <tr>
                             <td><%= link_to "#{item.name}", item_path(item) %></td>
-                            <td> <%= "#{item.file}" %> </td>
+                            <td> <%= link_to "#{item.filename}", rails_blob_path(item.file, disposition: "attachment") %> </td>
                             <% if item.active %>
                                 <td>Active</td>
                             <% else %>

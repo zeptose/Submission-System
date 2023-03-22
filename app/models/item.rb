@@ -5,7 +5,8 @@ class Item < ApplicationRecord
   extend AppHelpers::Activeable::ClassMethods
 
 
-    belongs_to :category
+  belongs_to :category
+  has_one_attached :file
 
   # Scopes
   scope :alphabetical, -> { order(:name) }
