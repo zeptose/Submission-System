@@ -14,7 +14,7 @@ Rails.application.routes.draw do
    get 'login', to: 'sessions#new', as: :login
    get 'logout', to: 'sessions#destroy', as: :logout
  
-   resources :categories, except: [:destroy]
+   resources :categories
    resources :items, except: [:destroy]
 
    # NOTE: please change this to foster parent and go to nav view to change the link

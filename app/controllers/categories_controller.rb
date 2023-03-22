@@ -1,5 +1,5 @@
 class CategoriesController < ApplicationController
-    before_action :set_category, only: [:show, :edit, :update, :toggle_active_category]
+    before_action :set_category, only: [:show, :edit, :update, :destroy, :toggle_active_category]
     # before_action :check_login
     # authorize_resource
   
@@ -26,6 +26,16 @@ class CategoriesController < ApplicationController
         render action: 'new'
       end
     end
+
+    def destroy
+      if @category.destroy
+        flash[:notice] = "Successfully deleted #{@category.name} from the system."
+        redirect_to categories_path
+      else
+        flash[:notice] = "Unable to delete because there are item(s) in category."
+        redirect_to category_path(@category)
+      end
+    end
   
     def edit
 
@@ -33,7 +43,7 @@ class CategoriesController < ApplicationController
   
     def update
       if @category.update_attributes(category_params)
-        flash[:notice] = "Successfully updated #{@category}."
+        flash[:notice] = "Successfully updated #{@category.name}."
         redirect_to categories_path
       else
         render action: 'edit'
