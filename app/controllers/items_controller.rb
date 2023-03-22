@@ -5,14 +5,6 @@ class ItemsController < ApplicationController
     #before_action :check_login, only: [:show, :edit, :update]
     #authorize_resource
   
-    def index
-      @categories = Category.active.all
-      if params[:category]
-        @category = Category.find(params[:category])
-      end
-
-    end
-  
     def new
       @item = Item.new
     end

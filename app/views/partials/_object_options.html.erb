@@ -2,12 +2,13 @@
 
 <div class="form-actions">
   
-  <%# if can? :index, eval(model_name.capitalize) %>
+  <%# if can? :index, eval(model_name.capitalize) && controller.respond_to?(:index) %>
+  <% if controller.respond_to?(:index) %>
     <%= link_to(eval("#{model_name.pluralize}_path"), class: 'waves-effect waves-light btn') do %>
       &nbsp;Display All <%# model_name.pluralize.capitalize %>
     <% end %>
     &nbsp;&nbsp;
-  <%# end %>
+  <% end %>
   
   <%# if can? :edit, object %> 
     <%= link_to(eval("edit_#{model_name}_path(object)"), class: 'waves-effect waves-light btn') do %>
