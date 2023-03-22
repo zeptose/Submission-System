@@ -18,12 +18,15 @@
 
  #topbar_style {
     background: #f0e8d3;
-    color: #518458;
     background-clip: padding-box;
     padding-top: 10px;
     padding-left: 20px;
     padding-bottom: 15px;
     margin: 0px;
+ }
+
+ #topbar_style a {
+   color: #518458;
  }
 
  #padded_content {

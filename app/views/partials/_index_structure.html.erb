@@ -4,15 +4,15 @@
     <%= render partial: "#{primary}" %>
     <!-- sometimes we want another partial below -->
     <% unless secondary.nil? %>
-      <p>&nbsp;</p>
+      <%# <p>&nbsp;</p> %>
       <%= render partial: "#{secondary}" %>
     <% end %>
     
   </div>
-  <div class="col s1">
+  <%# <div class="col s1">
     <!-- add a spacing column -->
     <p>&nbsp;</p>
-  </div>
+  </div> %>
   <div class="col s4">
     <!-- render the sidebar, if it exists -->
     <%= render partial: "#{sidebar}" unless sidebar.blank? %>

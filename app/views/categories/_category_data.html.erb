@@ -1,7 +1,6 @@
 <div class="card">
     <div class="card-content">
-        <h4> Details: <%= @category.name %> </h4>
-
+        <h4> <%= @category.name %> </h4>
 
         <%# if !current_user.nil? && current_user.role?(:admin) %>
             <% if @category.active %>
