@@ -1,0 +1,5 @@
+
+<h4> Employees at GPBO </h4>>
+<%= will_paginate @employees, previous_label: "Previous&nbsp;", next_label: "&nbsp;Next" %>
+<p>&nbsp;</p>
+<%= render :partial => "partials/add_new_object", locals: {model_name: 'user'} %>

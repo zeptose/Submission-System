@@ -8,9 +8,9 @@ Rails.application.routes.draw do
    get 'home/privacy', to: 'home#privacy', as: :privacy
    get 'search', to: 'search#search', as: :search
  
-  #  resources :users, only: [:edit, :index, :new, :create, :update]
-  #  get 'users/new', to: 'users#new', as: :signup
-  #  get 'user/edit', to: 'users#edit', as: :edit_current_user
+   resources :users, only: [:edit, :index, :new, :create, :update]
+   get 'users/new', to: 'users#new', as: :signup
+   get 'user/edit', to: 'users#edit', as: :edit_current_user
    get 'login', to: 'sessions#new', as: :login
    get 'logout', to: 'sessions#destroy', as: :logout
  
@@ -18,7 +18,8 @@ Rails.application.routes.draw do
    resources :items, except: [:destroy, :index] # in the future, items should be destroyed if there are no submissions attached
 
    # NOTE: please change this to foster parent and go to nav view to change the link
-   resources :customer
+   resources :case_workers
+   resources :foster_parents
 
    patch 'categories/:id/toggle_active_category', to: 'categories#toggle_active_category', as: :toggle_active_category
    patch 'items/:id/toggle_active_item', to: 'items#toggle_active_item', as: :toggle_active_item
