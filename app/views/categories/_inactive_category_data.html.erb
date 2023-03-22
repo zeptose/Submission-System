@@ -1,6 +1,6 @@
 <div class="card">
         <div class="card-content">
-            <h4>Inactive/Deleted Checklist Categories</h4>
+            <h4>Inactive Checklist Categories</h4>
 
             <% if @inactive_categories.empty? %>
                 <p>There are no inactive categories at this time.</p>
@@ -14,10 +14,10 @@
                         <th>Number of Form Items</th>
                     </thead>
                     <% for category in @inactive_categories %>
-                        <% if category.inactive?%>
+                        <% if !category.active%>
                             <tr>
                                 <td><%= link_to "#{category.name}", category_path(category)%></td>
-                                <td><%= category.category.items.size %> </td>
+                                <td><%= "#{category.items.size}" %> </td>
                             </tr>
                         <% end %>
                     <% end %>

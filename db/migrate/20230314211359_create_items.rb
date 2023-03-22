@@ -3,6 +3,7 @@ class CreateItems < ActiveRecord::Migration[5.2]
     create_table :items do |t|
       t.string :name
       t.string :instructions
+      t.string :filename
       t.string :file
       t.string :due_date
       t.boolean :active, default: true

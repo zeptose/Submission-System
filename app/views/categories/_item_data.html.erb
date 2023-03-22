@@ -1,0 +1,42 @@
+<% unless @category_items.empty? %>
+    <%# if !current_user.nil? && current_user.role?(:admin) %>
+        <div class="card">
+            <div class="card-content">
+            <h4><%= "#{@category.name}" %> Files </h4>
+                <table class = "striped highlight">
+                    <thead>
+                        <th>Section Items</th>
+                        <th>File</th>
+                        <th>Status</th>
+                    </thead>
+
+                    <% for item in @category_items %>
+                        <tr>
+                            <td><%= link_to "#{item.name}", item_path(item) %></td>
+                            <td> <%= link_to "#{item.filename}", rails_blob_path(item.file, disposition: "attachment") %> </td>
+                            <% if item.active %>
+                                <td>Active</td>
+                            <% else %>
+                                <td>Inactive</td>
+                            <% end %>
+                        </tr>
+                    <% end%>
+                </table><br>
+
+                <%# if can? :new, Item %>
+                    <%= link_to "Add a New Item", new_item_path(category_id: @category.id), class: 'waves-effect waves-light btn btn-alert' %>
+                <%# end %>
+            </div>
+        </div>
+    <%# end%>
+<% else%>
+    <div class="card">
+        <div class="card-content">
+            <%# if can? :new, ItemPrice %>
+                <h4><%= "#{@category.name}" %> Files </h4>
+                <p>There are currently no files associated with this category. Please add a file item below.</p><br>
+                <%= link_to "Add a New Item", new_item_path(category_id: @category.id), class: 'waves-effect waves-light btn btn-alert' %>
+            <%# end %>
+        </div>
+    </div>
+<% end %>
