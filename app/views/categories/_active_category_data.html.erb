@@ -1,0 +1,27 @@
+<div class="card">
+        <div class="card-content">
+            <h4>Active Checklist Categories</h4>
+
+            <% if @active_categories.empty? %>
+                <p>There are no active categories at this time.</p>
+             
+            <%else %>
+
+
+                <table class = "striped highlight">
+                    <thead>
+                        <th>Category Name</th>
+                        <th>Number of Form Items</th>
+                    </thead>
+                    <% for category in @active_categories %>
+                        <% if category.active?%>
+                            <tr>
+                                <td><%= link_to "#{category.name}", category_path(category)%></td>
+                                <td><%= "#{category.items.size}" %> </td>
+                            </tr>
+                        <% end %>
+                    <% end %>
+                </table>
+            <%end%>
+        </div>
+    </div>
