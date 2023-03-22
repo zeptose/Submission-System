@@ -1,0 +1,28 @@
+<div class="card">
+    <div class="card-content">
+        <h4><%= @item.name %> </h4>
+
+        <% if @item.active %>
+            <b>Status: </b>Active Item<br><br>
+        <% else %>
+            <b>Status: </b>Inactive Item<br><br>
+        <% end %>
+
+        <b>Checklist Category:</b> <%= @item.category.name %><br><br>
+
+        <b>Instructions:</b> <%= @item.instructions %><br><br>
+
+        <b>Due Date:</b> <%= @item.due_date %><br><br>
+        
+        <b>File:</b> <%= @item.file %><br><br>
+
+        <%# if !current_user.nil? && current_user.role?(:admin) %>
+            <% if @item.active %>
+                <%= link_to "Make Inactive", toggle_active_item_path, method: :patch, class: 'waves-effect waves-light btn btn-alert'%>
+            <% else %>
+                <%= link_to "Make Active", toggle_active_item_path, method: :patch, class: 'waves-effect waves-light btn btn-alert'%>
+            <% end %>
+        <%# end%>
+
+    </div>
+</div>

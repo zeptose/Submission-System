@@ -14,5 +14,15 @@ class Category < ApplicationRecord
 
     # Callbacks
     before_destroy :cannot_destroy_object
+    after_update :inactive_categories_have_inactive_items
+
+    private
+    def inactive_categories_have_inactive_items
+        return true if self.active
+
+        for item in self.items do
+            item.make_inactive
+        end
+    end
 
 end

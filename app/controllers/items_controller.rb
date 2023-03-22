@@ -1,9 +1,9 @@
 class ItemsController < ApplicationController
 
 
-    before_action :set_item, only: [:show, :edit, :update, :destroy, :toggle_active, :toggle_feature]
+    before_action :set_item, only: [:show, :edit, :update, :toggle_active_item]
     #before_action :check_login, only: [:show, :edit, :update]
-    authorize_resource
+    #authorize_resource
   
     def index
       @categories = Category.active.all
@@ -36,33 +36,36 @@ class ItemsController < ApplicationController
   
     def update
       if @item.update_attributes(item_params)
-        flash[:notice] = "Successfully updated #{@item}."
+        flash[:notice] = "Successfully updated #{@item.name}."
         redirect_to item_path
       else
         render action: 'edit'
       end
     end
-  
-    def destroy
-      if @item.order_items.empty?
-        @item.destroy
-        flash[:notice] = "#{@item.name} was made inactive, because it cannot be deleted."
-        redirect_to items_url
+
+    def toggle_active_item
+      if @item.active
+        @item.update_attribute(:active, false)
+        @item.save
+
+        flash[:notice] = "#{@item.name} was made inactive"
+        redirect_to item_path(@item)
       else
-        flash[:notice] = "#{@item.name} was removed from the system."
-        redirect_to item_path(@item.id)
+        @item.update_attribute(:active, true)
+        @item.save
+
+        flash[:notice] = "#{@item.name} was made active"
+        redirect_to item_path(@item)
       end
-    end
+  end
   
-    
-    
     private
       def set_item
         @item = Item.find(params[:id])
       end
   
       def item_params
-        params.require(:item).permit(:name, :insturctions, :file, :due_date, :active, :category_id)
+        params.require(:item).permit(:name, :instructions, :file, :due_date, :active, :category_id)
       end
   
   end

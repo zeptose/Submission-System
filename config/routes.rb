@@ -14,11 +14,16 @@ Rails.application.routes.draw do
    get 'login', to: 'sessions#new', as: :login
    get 'logout', to: 'sessions#destroy', as: :logout
  
- 
-   resources :categories, only: [:edit, :index, :new, :create, :update]
-   resources :customers
-   resources :addresses
-   resources :orders
-   resources :items
+   resources :categories, except: [:destroy]
+   resources :items, except: [:destroy]
+
+   # NOTE: please change this to foster parent and go to nav view to change the link
+   resources :customer
+
+   patch 'categories/:id/toggle_active_category', to: 'categories#toggle_active_category', as: :toggle_active_category
+   patch 'items/:id/toggle_active_item', to: 'items#toggle_active_item', as: :toggle_active_item
+
+   root 'home#index'
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

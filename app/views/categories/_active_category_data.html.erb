@@ -17,12 +17,11 @@
                         <% if category.active?%>
                             <tr>
                                 <td><%= link_to "#{category.name}", category_path(category)%></td>
-                                <td><%= "3" %> </td>
+                                <td><%= "#{category.items.size}" %> </td>
                             </tr>
                         <% end %>
                     <% end %>
                 </table>
             <%end%>
-
         </div>
     </div>
