@@ -43,7 +43,6 @@ ActiveRecord::Schema.define(version: 2023_03_22_021515) do
   create_table "items", force: :cascade do |t|
     t.string "name"
     t.string "instructions"
-    t.string "filename"
     t.string "file"
     t.string "due_date"
     t.boolean "active", default: true
