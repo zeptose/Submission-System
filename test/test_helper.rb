@@ -22,6 +22,7 @@ require 'minitest/rails'
 require 'minitest/reporters'
 require 'minitest_extensions'
 require 'contexts'
+require 'logins'
 
 #require 'logins'
 

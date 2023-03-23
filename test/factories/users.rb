@@ -1,8 +1,9 @@
 FactoryBot.define do
   factory :user do
-    username { "MyString" }
-    password_digest { "MyString" }
-    role { "MyString" }
+    username { "tmp" }
+    password { "secret" }
+    password_confirmation { "secret" }
+    role { "foster_parent" }
     active { false }
   end
 end

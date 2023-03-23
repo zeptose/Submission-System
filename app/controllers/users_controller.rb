@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
-    before_action :set_user, only: [:edit, :update]
+    before_action :set_user, only: [:show, :edit, :update]
     before_action :check_login
     authorize_resource
-  
+
   
     # def index
     #   # finding all the active users and paginating that list (will_paginate)
@@ -13,9 +13,13 @@ class UsersController < ApplicationController
       @user = User.new
     end
   
+    def edit
+      @user.role = "case_worker" if current_user.role?(:case_worker)
+    end
+
     def create
       @user = User.new(user_params)
-      @user.role = "case worker" if current_user.role?(:case_worker)
+      @user.role = "case_worker" if current_user.role?(:case_worker)
       if @user.save
         flash[:notice] = "Successfully added #{@user.username} as a user."
         redirect_to users_url
@@ -24,8 +28,6 @@ class UsersController < ApplicationController
       end
     end
   
-    def edit
-    end
   
     def update
       if @user.update_attributes(user_params)
