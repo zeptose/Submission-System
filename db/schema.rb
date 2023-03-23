@@ -46,8 +46,7 @@ ActiveRecord::Schema.define(version: 2023_03_22_193003) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
-    t.string "active"
-    t.string "boolean"
+    t.boolean "active", default: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -71,9 +70,10 @@ ActiveRecord::Schema.define(version: 2023_03_22_193003) do
   create_table "items", force: :cascade do |t|
     t.string "name"
     t.string "instructions"
+    t.string "filename"
     t.string "file"
     t.string "due_date"
-    t.boolean "active"
+    t.boolean "active", default: true
     t.integer "category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

@@ -4,10 +4,10 @@ class UsersController < ApplicationController
     authorize_resource
   
   
-    def index
-      # finding all the active users and paginating that list (will_paginate)
-      @employees = User.case_worker.paginate(page: params[:page]).per_page(15)
-    end
+    # def index
+    #   # finding all the active users and paginating that list (will_paginate)
+    #   @employees = User.case_worker.paginate(page: params[:page]).per_page(15)
+    # end
   
     def new
       @user = User.new
@@ -35,6 +35,8 @@ class UsersController < ApplicationController
         render action: 'edit'
       end
     end
+    
+   
   
     private
 
