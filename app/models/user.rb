@@ -8,13 +8,10 @@ class User < ApplicationRecord
     has_secure_password
     has_many :index_fosters 
     has_many :case_workers
-    # Relationships
-    # has_one :customer
   
     # Scopes
     scope :by_role,      -> { order(:role) }
     scope :alphabetical, -> { order(:username) }
-    # scope :employees,    -> { where.not(role: 'customer') }
   
     # Validations
     validates :username, presence: true, uniqueness: { case_sensitive: false}
