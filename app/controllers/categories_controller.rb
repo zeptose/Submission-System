@@ -1,7 +1,7 @@
 class CategoriesController < ApplicationController
     before_action :set_category, only: [:show, :edit, :update, :destroy, :toggle_active_category]
-    # before_action :check_login
-    # authorize_resource
+    before_action :check_login
+    authorize_resource
   
     def index
       @active_categories = Category.active.paginate(page: params[:page]).per_page(15)

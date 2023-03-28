@@ -6,7 +6,8 @@ class User < ApplicationRecord
   
     # Use built-in rails support for password protection
     has_secure_password
-  
+    has_many :index_fosters 
+    has_many :case_workers
     # Relationships
     # has_one :customer
   

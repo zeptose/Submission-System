@@ -2,8 +2,8 @@ class ItemsController < ApplicationController
 
 
     before_action :set_item, only: [:show, :edit, :update, :toggle_active_item]
-    #before_action :check_login, only: [:show, :edit, :update]
-    #authorize_resource
+    before_action :check_login, only: [:show, :edit, :update]
+    authorize_resource
   
     def new
       @item = Item.new

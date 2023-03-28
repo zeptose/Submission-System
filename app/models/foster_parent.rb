@@ -7,7 +7,7 @@ class FosterParent < ApplicationRecord
 
   
   belongs_to :user
-
+  has_many :assignments
 
   # Scopes
   scope :alphabetical,  -> { order(:p1_last_name, :p1_first_name) }

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_03_22_193003) do
+ActiveRecord::Schema.define(version: 2023_03_28_200253) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -31,6 +31,20 @@ ActiveRecord::Schema.define(version: 2023_03_22_193003) do
     t.string "checksum", null: false
     t.datetime "created_at", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
+
+  create_table "assignments", force: :cascade do |t|
+    t.integer "item_id"
+    t.integer "foster_parent_id"
+    t.integer "case_worker_id"
+    t.string "due_date"
+    t.boolean "completion"
+    t.string "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["case_worker_id"], name: "index_assignments_on_case_worker_id"
+    t.index ["foster_parent_id"], name: "index_assignments_on_foster_parent_id"
+    t.index ["item_id"], name: "index_assignments_on_item_id"
   end
 
   create_table "case_workers", force: :cascade do |t|
@@ -78,6 +92,15 @@ ActiveRecord::Schema.define(version: 2023_03_22_193003) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_items_on_category_id"
+  end
+
+  create_table "submissions", force: :cascade do |t|
+    t.string "date_completed"
+    t.string "file"
+    t.integer "item_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["item_id"], name: "index_submissions_on_item_id"
   end
 
   create_table "users", force: :cascade do |t|

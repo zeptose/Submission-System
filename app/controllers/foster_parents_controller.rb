@@ -1,7 +1,7 @@
 class FosterParentsController < ApplicationController
     before_action :set_foster_parent, only: [:show, :edit, :update]
     before_action :check_login, only: [:show, :edit, :update]
-    # authorize_resource
+    authorize_resource
   
     def index
       @active_foster_parents = FosterParent.active.paginate(page: params[:page]).per_page(15)
