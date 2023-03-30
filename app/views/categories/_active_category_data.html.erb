@@ -12,12 +12,18 @@
                     <thead>
                         <th>Category Name</th>
                         <th>Number of Form Items</th>
+                        <% if !current_user.nil? && current_user.role?(:foster_parent) %>
+                            <th>Completion</th>
+                        <% end %>
                     </thead>
                     <% for category in @active_categories %>
                         <% if category.active?%>
                             <tr>
                                 <td><%= link_to "#{category.name}", category_path(category)%></td>
                                 <td><%= "#{category.items.size}" %> </td>
+                                <% if !current_user.nil? && current_user.role?(:foster_parent) %>
+                                    <td><%= "Incomplete" %></td>
+                                <% end %>
                             </tr>
                         <% end %>
                     <% end %>

@@ -2,7 +2,7 @@
     <div class="card-content">
         <h4> <%= @category.name %> </h4>
 
-        <%# if !current_user.nil? && current_user.role?(:admin) %>
+        <% if !current_user.nil? && current_user.role?(:case_worker) %>
             <% if @category.active %>
                 <b>Status:</b><p>Active Category</p><br>
                 <%= link_to "Make Inactive", toggle_active_category_path, method: :patch, class: 'waves-effect waves-light btn btn-alert'%>
@@ -10,7 +10,7 @@
                 <b>Status:</b><p>Inactive Category (all file items under this category is also inactive)</p><br>
                 <%= link_to "Make Active", toggle_active_category_path, method: :patch, class: 'waves-effect waves-light btn btn-alert'%>
             <% end %>
-        <%# end%>
+        <% end%>
 
     </div>
 </div>

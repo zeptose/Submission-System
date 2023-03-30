@@ -1,11 +1,9 @@
 class FosterParent < ApplicationRecord
-
-
   include AppHelpers::Deletions
   include AppHelpers::Activeable::InstanceMethods
   extend AppHelpers::Activeable::ClassMethods
 
-  
+  attr_accessor :username, :password, :password_confirmation, :role
   belongs_to :user
 
 

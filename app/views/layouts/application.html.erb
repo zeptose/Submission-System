@@ -13,8 +13,14 @@
   <body>
     <%= render :partial => "partials/topbar" %>
 
-    
-    <%= render :partial => "partials/nav_guest" %>
+    <% if logged_in? && ( current_user.role?(:case_worker) ) %>
+      <%= render :partial => "partials/nav_case_worker" %>
+    <% elsif logged_in? && current_user.role?(:foster_parent) %>
+      <%= render :partial => "partials/nav_foster_parent" %>
+    <% else %>
+      <%= render :partial => "partials/nav_guest" %>
+    <% end %>
+
     
 
       <div id="main_content">

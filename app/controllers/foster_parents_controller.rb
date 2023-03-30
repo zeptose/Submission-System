@@ -41,15 +41,11 @@ class FosterParentsController < ApplicationController
     end
   
     def update
-    #   respond_to do |format|
-    #     if @foster_parent.update_attributes(foster_parent_params)
-    #       format.html { redirect_to(@customer, :notice => "Successfully updated #{@customer.proper_name}.") }
-    #       format.json { respond_with_bip(@customer) }
-    #     else
-    #       format.html { render :action => "edit" }
-    #       format.json { respond_with_bip(@customer) }
-        # end
-    #   end
+      if @customer.update_attributes(foster_parent_params)
+        redirect_to @customer, notice: "Successfully updated #{@foster_parent.p1_last_name}."
+      else
+          render :action => 'edit'
+      end
     end
   
     private
@@ -63,7 +59,7 @@ class FosterParentsController < ApplicationController
       end
   
       def user_params
-        params.require(:user).permit(:active, :username, :role, :password, :password_confirmation)
+        params.require(:foster_parent).permit(:active, :username, :password, :password_confirmation)
       end
 
 end

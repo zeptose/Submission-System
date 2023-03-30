@@ -1,0 +1,30 @@
+<div class="card">
+        <div class="card-content">
+            <h4>Active Checklist Categories</h4>
+
+            <% if @active_foster_parents.empty? %>
+                <p>There are no active categories at this time.</p>
+             
+            <%else %>
+
+                <table class = "striped highlight">
+                    <thead>
+                        <th>Foster Parent Names</th>
+                        <th>Email</th>
+                        <th>Assigned Forms</th>
+                        <th>Incomplete</th>
+                        
+                    </thead>
+                    <% for parent in @active_foster_parents %>
+                        <% if parent.active?%>
+                            <tr>
+                                
+
+                                
+                            </tr>
+                        <% end %>
+                    <% end %>
+                </table>
+            <%end%>
+        </div>
+    </div>

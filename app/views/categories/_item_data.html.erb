@@ -1,5 +1,5 @@
 <% unless @category_items.empty? %>
-    <%# if !current_user.nil? && current_user.role?(:admin) %>
+    <% if !current_user.nil? && current_user.role?(:case_worker) %>
         <div class="card">
             <div class="card-content">
             <h4><%= "#{@category.name}" %> Files </h4>
@@ -23,20 +23,20 @@
                     <% end%>
                 </table><br>
 
-                <%# if can? :new, Item %>
+                <% if can? :new, Item %>
                     <%= link_to "Add a New Item", new_item_path(category_id: @category.id), class: 'waves-effect waves-light btn btn-alert' %>
-                <%# end %>
+                <% end %>
             </div>
         </div>
-    <%# end%>
+    <% end%>
 <% else%>
     <div class="card">
         <div class="card-content">
-            <%# if can? :new, ItemPrice %>
+            <% if can? :new, Item %>
                 <h4><%= "#{@category.name}" %> Files </h4>
                 <p>There are currently no files associated with this category. Please add a file item below.</p><br>
                 <%= link_to "Add a New Item", new_item_path(category_id: @category.id), class: 'waves-effect waves-light btn btn-alert' %>
-            <%# end %>
+            <% end %>
         </div>
     </div>
 <% end %>

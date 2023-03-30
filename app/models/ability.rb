@@ -22,8 +22,8 @@ class Ability
       
       # they can read and update their own profile
       # can :show, Customer, user_id: user.id  # new, more compact method
-      can :show, Fosterparent do |c|  
-        c.id == user.fosterparent.id
+      can :show, FosterParent do |c|  
+        c.id == user.foster_parent.id
       end
 
       can :show, User do |u|  
@@ -31,8 +31,8 @@ class Ability
       end
 
       # show updates
-      can :update, Fosterparent do |c|  
-        c.id == user.fosterparent.id
+      can :update, FosterParent do |c|  
+        c.id == user.foster_parent.id
       end
 
       can :update, User do |u|  
