@@ -19,11 +19,11 @@ test:
   # password: <%= SETTINGS[:db_password] %>
 
 production:
-  # adapter: postgresql
-  # encoding: unicode
-  # host: localhost
-  # database: <%= SETTINGS[:production_database] %>
-  # pool: 16
-  # username: <%= SETTINGS[:db_user] %>
-  # password: <%= SETTINGS[:db_password] %>
+  adapter: postgresql
+  encoding: unicode
+  host: localhost
+  database: <%= SETTINGS[:production_database] %>
+  pool: 16
+  username: <%= SETTINGS[:db_user] %>
+  password: <%= SETTINGS[:db_password] %>
 
