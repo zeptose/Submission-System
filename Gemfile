@@ -20,10 +20,7 @@ gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'mini_racer', platforms: :ruby
 
-gem 'capistrano',                 '3.11.2'
-gem 'capistrano-rails',           '1.4.0'
-gem 'capistrano-rbenv',           '2.1.4 '
-gem 'capistrano-passenger',       '0.2.0'
+
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
@@ -66,6 +63,10 @@ group :development, :test do
   # gem 'better_errors'
   # gem 'binding_of_caller'
   # gem 'meta_request'
+  gem 'capistrano',                 '2.15.5'
+  gem 'capistrano-rails',           '1.4.0'
+  gem 'capistrano-rbenv',           '2.1.4 '
+  gem 'capistrano-passenger',       '0.2.0'
   gem 'hirb', '0.7.3'
   gem 'faker', '2.16.0'
   gem 'populator', '1.0.0'
