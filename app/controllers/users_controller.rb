@@ -19,7 +19,13 @@ class UsersController < ApplicationController
 
     def create
       @user = User.new(user_params)
-      @user.role = "case_worker" if current_user.role?(:case_worker)
+      
+      if current_user.role?(:case_worker)
+        @user.role = "case_worker"
+      else
+        @user.role = "foster_parent"
+      end
+
       if @user.save
         flash[:notice] = "Successfully added #{@user.username} as a user."
         redirect_to users_url
