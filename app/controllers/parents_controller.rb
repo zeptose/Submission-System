@@ -23,8 +23,8 @@ class ParentsController < ApplicationController
         @parent.user_id = @user.id
         if @parent.save
           session[:user_id] = @parent.user.id
-          flash[:notice] = "#{@parent.proper_name} was added to the system."
-          redirect_to parent_path(@parent)
+          flash[:notice] = "#{@parent.p1_last_name} was added to the system."
+          redirect_to parents_path
         else
           render action: 'new'
         end

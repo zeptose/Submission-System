@@ -1,5 +1,6 @@
 class Parent < ApplicationRecord
   include AppHelpers::Deletions
+  include AppHelpers::Validations
   include AppHelpers::Activeable::InstanceMethods
   extend AppHelpers::Activeable::ClassMethods
 
@@ -9,7 +10,7 @@ class Parent < ApplicationRecord
 
   # Scopes
   scope :alphabetical,  -> { order(:p1_last_name, :p1_first_name) }
-  scope :search, ->(term) { where('first_name LIKE ? OR last_name LIKE ?', "#{term}%", "#{term}%") }
+  scope :search, ->(term) { where('first_name LIKE ? OR lat_name LIKE ?', "#{term}%", "#{term}%") }
 
 
   # Validations
@@ -22,7 +23,7 @@ class Parent < ApplicationRecord
   FAMILYSTYLE = ['Traditional', 'Therapeutic', 'Respite'] 
 
   # Callbacks
-  before_save    -> { strip_nondigits_from(:phone) }
+  before_save    -> { strip_nondigits_from(:phone_number) }
   before_update :deactive_user_if_parent_inactive
 
 
