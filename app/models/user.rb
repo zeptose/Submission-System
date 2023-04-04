@@ -24,7 +24,7 @@ class User < ApplicationRecord
     validates_length_of :password, minimum: 4, message: "must be at least 4 characters long", allow_blank: true
   
     # For use in authorizing with CanCan
-    ROLES = [['Case Worker', :case_worker],['Foster Parent', :foster_parent]]
+    ROLES = [['Case Worker', :case_worker],['Foster Parent', :parent]]
   
     def role?(authorized_role)
       return false if role.nil?
