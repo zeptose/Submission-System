@@ -18,9 +18,10 @@
                     <% for parent in @active_parents %>
                         <% if parent.active?%>
                             <tr>
-                                
-
-
+                                <td><%= link_to "#{parent.name}", parent_path(parent)%></td>
+                                <td><%= "#{parent.email}" %> </td>
+                                <td><%= "3 Forms or whatevs"%></td>
+                                <td><%= "3 Incomplete or whatevs"%></td>
                             </tr>
                         <% end %>
                     <% end %>

@@ -8,7 +8,7 @@ class CreateParents < ActiveRecord::Migration[5.2]
       t.string :email
       t.string :phone_number
       t.references :user, foreign_key: true
-      t.boolean :active
+      t.boolean :active, default: true
       t.integer :open_beds
       t.string :family_style
 

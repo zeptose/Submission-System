@@ -72,7 +72,7 @@ ActiveRecord::Schema.define(version: 2023_03_22_193003) do
     t.string "email"
     t.string "phone_number"
     t.integer "user_id"
-    t.boolean "active"
+    t.boolean "active", default: true
     t.integer "open_beds"
     t.string "family_style"
     t.datetime "created_at", null: false

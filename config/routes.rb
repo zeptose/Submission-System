@@ -17,7 +17,6 @@ Rails.application.routes.draw do
    resources :categories
    resources :items, except: [:destroy, :index] # in the future, items should be destroyed if there are no submissions attached
 
-   # NOTE: please change this to foster parent and go to nav view to change the link
    resources :case_workers
    resources :parents
 

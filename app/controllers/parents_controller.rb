@@ -41,8 +41,8 @@ class ParentsController < ApplicationController
     end
   
     def update
-      if @customer.update_attributes(parent_params)
-        redirect_to @customer, notice: "Successfully updated #{@parent.p1_last_name}."
+      if @parent.update_attributes(parent_params)
+        redirect_to @parent, notice: "Successfully updated #{@parent.p1_last_name}."
       else
           render :action => 'edit'
       end
@@ -55,11 +55,11 @@ class ParentsController < ApplicationController
       end
   
       def parent_params
-        params.require(:parent).permit(:first_name, :last_name, :email, :phone_number, :active, :username, :password, :password_confirmation, :open_beds, :family_style)
+        params.require(:parent).permit(:p1_first_name, :p1_last_name, :p2_last_name, :p2_first_name, :email, :phone_number, :open_beds, :family_style, :active, :username, :password, :password_confirmation, :role)
       end
   
       def user_params
-        params.require(:parent).permit(:active, :username, :password, :password_confirmation)
+        params.require(:parent).permit(:active, :username, :password, :password_confirmation, :role)
       end
 
 end
