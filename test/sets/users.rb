@@ -18,12 +18,14 @@ module Contexts
         @alex = FactoryBot.create(:user, username: "alex", role: "case_worker", active: true)
         @rachel = FactoryBot.create(:user, username: "rachel", role: "case_worker", active: true)
         @mark = FactoryBot.create(:user, username: "mark", role: "case_worker", active: true)
+        @admin = FactoryBot.create(:user, username: "admin", role: "case_worker", active: true)
       end
   
       def destroy_admin_users
         @alex.delete 
         @rachel.delete 
         @mark.delete
+        @admin.delete
       end
   
     end

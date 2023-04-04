@@ -1,6 +1,6 @@
 class ParentsController < ApplicationController
     before_action :set_parent, only: [:show, :edit, :update]
-    before_action :check_login, only: [:show, :edit, :update]
+    before_action :check_login, only: [:show, :edit, :update, :index]
     # authorize_resource
   
     def index
@@ -23,7 +23,7 @@ class ParentsController < ApplicationController
         @parent.user_id = @user.id
         if @parent.save
           session[:user_id] = @parent.user.id
-          flash[:notice] = "#{@parent.p1_last_name} was added to the system."
+          flash[:notice] = "#{@parent.p1_first_name} #{@parent.p1_last_name} was added to the system."
           redirect_to parents_path
         else
           render action: 'new'
