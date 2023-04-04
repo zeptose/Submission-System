@@ -19,11 +19,11 @@ class UsersController < ApplicationController
 
     def create
       @user = User.new(user_params)
-      
+
       if current_user.role?(:case_worker)
         @user.role = "case_worker"
       else
-        @user.role = "foster_parent"
+        @user.role = "parent"
       end
 
       if @user.save

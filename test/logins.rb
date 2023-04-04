@@ -5,10 +5,10 @@ module Logins
       post sessions_path, params: { username: "admin", password: "secret" }
     end
   
-    def login_foster_parent
-      @foster_parent_user = FactoryBot.create(:user, username: "foster_parent", role: "foster_parent")
+    def login_parent
+      @parent_user = FactoryBot.create(:user, username: "parent", role: "parent")
       get login_path
-      post sessions_path, params: { username: "foster_parent", password: "secret" }
+      post sessions_path, params: { username: "parent", password: "secret" }
     end
   
     # def login_customer

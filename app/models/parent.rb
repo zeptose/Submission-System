@@ -1,4 +1,4 @@
-class FosterParent < ApplicationRecord
+class Parent < ApplicationRecord
   include AppHelpers::Deletions
   include AppHelpers::Activeable::InstanceMethods
   extend AppHelpers::Activeable::ClassMethods
@@ -23,11 +23,11 @@ class FosterParent < ApplicationRecord
 
   # Callbacks
   before_save    -> { strip_nondigits_from(:phone) }
-  before_update :deactive_user_if_foster_parent_inactive
+  before_update :deactive_user_if_parent_inactive
 
 
   private
-  def deactive_user_if_foster_parent_inactive
+  def deactive_user_if_parent_inactive
     if !self.active && !self.user.nil?
       self.user.active = false
       self.user.save

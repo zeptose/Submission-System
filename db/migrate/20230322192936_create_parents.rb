@@ -1,6 +1,6 @@
-class CreateFosterParents < ActiveRecord::Migration[5.2]
+class CreateParents < ActiveRecord::Migration[5.2]
   def change
-    create_table :foster_parents do |t|
+    create_table :parents do |t|
       t.string :p1_first_name
       t.string :p1_last_name
       t.string :p2_first_name

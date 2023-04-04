@@ -1,9 +1,9 @@
 <div class="card">
         <div class="card-content">
-            <h4>Active Checklist Categories</h4>
+            <h4>Active Foster Parents</h4>
 
-            <% if @active_foster_parents.empty? %>
-                <p>There are no active categories at this time.</p>
+            <% if @active_parents.empty? %>
+                <p>There are no active foster parents on file at this time.</p>
              
             <%else %>
 
@@ -15,12 +15,12 @@
                         <th>Incomplete</th>
                         
                     </thead>
-                    <% for parent in @active_foster_parents %>
+                    <% for parent in @active_parents %>
                         <% if parent.active?%>
                             <tr>
                                 
 
-                                
+
                             </tr>
                         <% end %>
                     <% end %>

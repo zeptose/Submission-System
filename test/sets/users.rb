@@ -2,9 +2,9 @@ module Contexts
     module Users
       # Context for both vet and assistant users
       def create_foster_parent_users
-        @jordan = FactoryBot.create(:user, username: "jordan", role: "foster_parent", active: true)
-        @becca  = FactoryBot.create(:user, username: "becca", role: "foster_parent", active: true)
-        @connor = FactoryBot.create(:user, username: "connor", role: "foster_parent", active: false)
+        @jordan = FactoryBot.create(:user, username: "jordan", role: "parent", active: true)
+        @becca  = FactoryBot.create(:user, username: "becca", role: "parent", active: true)
+        @connor = FactoryBot.create(:user, username: "connor", role: "parent", active: false)
       end
       
       def destroy_foster_parent_users

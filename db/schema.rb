@@ -51,7 +51,20 @@ ActiveRecord::Schema.define(version: 2023_03_22_193003) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "foster_parents", force: :cascade do |t|
+  create_table "items", force: :cascade do |t|
+    t.string "name"
+    t.string "instructions"
+    t.string "filename"
+    t.string "file"
+    t.string "due_date"
+    t.boolean "active", default: true
+    t.integer "category_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_items_on_category_id"
+  end
+
+  create_table "parents", force: :cascade do |t|
     t.string "p1_first_name"
     t.string "p1_last_name"
     t.string "p2_first_name"
@@ -64,20 +77,7 @@ ActiveRecord::Schema.define(version: 2023_03_22_193003) do
     t.string "family_style"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_foster_parents_on_user_id"
-  end
-
-  create_table "items", force: :cascade do |t|
-    t.string "name"
-    t.string "instructions"
-    t.string "filename"
-    t.string "file"
-    t.string "due_date"
-    t.boolean "active", default: true
-    t.integer "category_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["category_id"], name: "index_items_on_category_id"
+    t.index ["user_id"], name: "index_parents_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

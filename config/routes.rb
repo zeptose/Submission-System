@@ -19,7 +19,7 @@ Rails.application.routes.draw do
 
    # NOTE: please change this to foster parent and go to nav view to change the link
    resources :case_workers
-   resources :foster_parents
+   resources :parents
 
    patch 'categories/:id/toggle_active_category', to: 'categories#toggle_active_category', as: :toggle_active_category
    patch 'items/:id/toggle_active_item', to: 'items#toggle_active_item', as: :toggle_active_item
