@@ -15,7 +15,7 @@
 
     <% if logged_in? && ( current_user.role?(:case_worker) ) %>
       <%= render :partial => "partials/nav_case_worker" %>
-    <% elsif logged_in? && current_user.role?(:foster_parent) %>
+    <% elsif logged_in? && current_user.role?(:parent) %>
       <%= render :partial => "partials/nav_foster_parent" %>
     <% else %>
       <%= render :partial => "partials/nav_guest" %>
