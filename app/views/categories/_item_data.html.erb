@@ -36,6 +36,9 @@
                 <h4><%= "#{@category.name}" %> Files </h4>
                 <p>There are currently no files associated with this category. Please add a file item below.</p><br>
                 <%= link_to "Add a New Item", new_item_path(category_id: @category.id), class: 'waves-effect waves-light btn btn-alert' %>
+            <% else %> 
+                <h4><%= "#{@category.name}" %> Files </h4>
+                <p>There are currently no files associated with this category. </p><br>
             <% end %>
         </div>
     </div>

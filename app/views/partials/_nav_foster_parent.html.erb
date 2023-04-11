@@ -7,8 +7,9 @@
 
     </ul>
     <ul class="right">
-      <li><%= link_to 'Profile', parent_path(@curent_user) %></li>
+      <li><%= link_to 'Profile', parent_path(current_user.parent) %></li>
       <li><%= link_to 'Logout', logout_path %></li>
     </ul>
   </div>
 </nav>
+

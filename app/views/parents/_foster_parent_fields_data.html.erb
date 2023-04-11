@@ -6,4 +6,4 @@
 <%= f.input :phone_number, label_html: { class: 'active' } %>
 <%= f.input :open_beds, label_html: { class: 'active' } %>
 <%= f.input :family_style, collection: ['Traditional', 'Therapeutic', 'Respite'], include_blank: true %>
-<%= f.hidden_field :role, value: "parent" %>
+<%= f.hidden_field :role, :value => "parent" %>

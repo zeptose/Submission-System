@@ -8,7 +8,8 @@ class User < ApplicationRecord
     has_secure_password
   
     # Relationships
-    # has_one :customer
+    has_one :parent
+    has_one :case_worker
   
     # Scopes
     scope :by_role,      -> { order(:role) }

@@ -22,6 +22,7 @@ Rails.application.routes.draw do
 
    patch 'categories/:id/toggle_active_category', to: 'categories#toggle_active_category', as: :toggle_active_category
    patch 'items/:id/toggle_active_item', to: 'items#toggle_active_item', as: :toggle_active_item
+   patch 'parents/:id/toggle_active_parent', to: 'parents#toggle_active_parent', as: :toggle_active_parent
 
    root 'home#index'
 

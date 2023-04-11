@@ -13,10 +13,10 @@
                         <th>Email</th>
                         
                     </thead>
-                    <% for parent in @active_parents %>
-                        <% if parent.active?%>
+                    <% for parent in @inactive_parents %>
+                        <% if !parent.active?%>
                             <tr>
-                                <td><%= link_to "#{parent.name}", parent_path(parent)%></td>
+                                <td><%= link_to "#{parent.p1_last_name}, #{parent.p1_first_name}", parent_path(parent)%></td>
                                 <td><%= "#{parent.email}" %> </td>
                             </tr>
                         <% end %>

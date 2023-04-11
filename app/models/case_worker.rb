@@ -7,7 +7,6 @@ class CaseWorker < ApplicationRecord
 
   belongs_to :user
 
-
   # Scopes
   scope :alphabetical,  -> { order(:last_name, :first_name) }
 

@@ -1,7 +1,7 @@
 class ParentsController < ApplicationController
-    before_action :set_parent, only: [:show, :edit, :update]
+    before_action :set_parent, only: [:show, :edit, :update, :toggle_active_parent]
     before_action :check_login, only: [:show, :edit, :update, :index]
-    # authorize_resource
+    authorize_resource
   
     def index
       @active_parents = Parent.active.paginate(page: params[:page]).per_page(15)
@@ -22,9 +22,12 @@ class ParentsController < ApplicationController
       else
         @parent.user_id = @user.id
         if @parent.save
-          session[:user_id] = @parent.user.id
           flash[:notice] = "#{@parent.p1_first_name} #{@parent.p1_last_name} was added to the system."
-          redirect_to parents_path
+          if !current_user.nil?
+            redirect_to parents_path
+          else
+            redirect_to parent_path(@parent)
+          end 
         else
           render action: 'new'
         end
@@ -36,15 +39,30 @@ class ParentsController < ApplicationController
     end
   
     def show
-    #   @previous_orders = @customer.orders.all.to_a
-    #   @addresses = @customer.addresses.all.to_a
+      @parent = Parent.find(params[:id])
     end
   
     def update
       if @parent.update_attributes(parent_params)
-        redirect_to @parent, notice: "Successfully updated #{@parent.p1_last_name}."
+        redirect_to @parent, notice: "Successfully updated #{@parent.p1_last_name} Family."
       else
           render :action => 'edit'
+      end
+    end
+
+    def toggle_active_parent
+      if @parent.active
+        @parent.update_attribute(:active, false)
+        @parent.save
+
+        flash[:notice] = "#{@parent.p1_last_name} family was made inactive"
+        redirect_to parent_path(@parent)
+      else
+        @parent.update_attribute(:active, true)
+        @parent.save
+
+        flash[:notice] = "#{@parent.p1_last_name} family was made active"
+        redirect_to parent_path(@parent)
       end
     end
   
