@@ -1,6 +1,24 @@
 <div class="card">
     <div class="card-content">
-        <h4><%= @parent.p1_first_name%> <%= @parent.p1_last_name%></h4>
+        <h4><%= @parent.p1_last_name%> Family Unit</h4>
+
+        <table class = "striped highlight">
+            <thead>
+                <th></th>
+                <th>First Name</th>
+                <th>Last Name</th>
+            </thead>
+                <tr>
+                   <td><%= "Primary Parent"%></td>
+                    <td><%= "#{@parent.p1_first_name}"%></td>
+                    <td><%= "#{@parent.p1_last_name}" %></td>
+                </tr>
+                <% if @parent.p2_first_name != "" %>
+                    <td><bold><%= "Secondary Parent"%></bold></td>
+                    <td><%= "#{@parent.p2_first_name}"%></td>
+                    <td><%= "#{@parent.p2_last_name}" %></td>
+                <% end %>
+        </table> <br><br>
 
         <% if @parent.active %>
             <b>Status: </b>Active Family<br><br>
@@ -14,13 +32,17 @@
 
         <b>Email Address:</b> <%= best_in_place @parent, :email, as: :input %><br><br>
 
-        <%# if !current_user.nil? && current_user.role?(:admin) %>
+        <b>Open Beds:</b> <%= @parent.open_beds%><br><br>
+
+        <b>Family Style:</b> <%= @parent.family_style%><br><br>
+
+        <% if !current_user.nil? && current_user.role?(:case_worker) %>
             <% if @parent.active %>
                 <%= link_to "Make Inactive", toggle_active_parent_path, method: :patch, class: 'waves-effect waves-light btn btn-alert'%>
             <% else %>
                 <%= link_to "Make Active", toggle_active_parent_path, method: :patch, class: 'waves-effect waves-light btn btn-alert'%>
             <% end %>
-        <%# end%>
+        <% end%>
 
     </div>
 </div>

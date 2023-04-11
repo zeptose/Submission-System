@@ -22,11 +22,12 @@ class ParentsController < ApplicationController
       else
         @parent.user_id = @user.id
         if @parent.save
-          flash[:notice] = "#{@parent.p1_first_name} #{@parent.p1_last_name} was added to the system."
           if !current_user.nil?
+            flash[:notice] = "#{@parent.p1_first_name} #{@parent.p1_last_name} was added to the system."
             redirect_to parents_path
           else
-            redirect_to parent_path(@parent)
+            flash[:notice] = "Please login to access #{@parent.p1_first_name} #{@parent.p1_last_name}'s account."
+            redirect_to login_path
           end 
         else
           render action: 'new'
