@@ -6,7 +6,7 @@ class Item < ApplicationRecord
 
 
   belongs_to :category
-  has_one_attached :file
+  has_one_attached :file, dependent: :purge_later
 
   # Scopes
   scope :alphabetical, -> { order(:name) }
