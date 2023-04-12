@@ -47,7 +47,7 @@ gem 'validates_timeliness', '5.0.0'
 gem 'time_date_helpers', '0.0.4'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
-# gem 'cancancan', '3.1.0'   # '3.1.0'
+gem 'cancancan', '3.1.0'   # '3.1.0'
 
 # View gems
 gem 'will_paginate'

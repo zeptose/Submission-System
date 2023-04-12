@@ -13,8 +13,14 @@
         <b>Instructions:</b> <%= @item.instructions %><br><br>
 
         <b>Due Date:</b> <%= @item.due_date %><br><br>
+
+        <% if !@item.file.nil? %>
+            <b>File:</b> <%= link_to "#{@item.filename}", rails_blob_path(@item.file, disposition: "attachment") %> <br><br>
+        <% else %>
+            <b>File:</b> No linked files. <br><br>
+        <% end %>
         
-        <b>File:</b> <%= link_to "#{@item.filename}", rails_blob_path(@item.file, disposition: "attachment") %> <br><br>
+        
 
         <%# if !current_user.nil? && current_user.role?(:admin) %>
             <% if @item.active %>

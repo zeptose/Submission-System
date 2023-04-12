@@ -22,14 +22,14 @@ require 'minitest/rails'
 require 'minitest/reporters'
 require 'minitest_extensions'
 require 'contexts'
+require 'logins'
 
-#require 'logins'
+
 
 class ActiveSupport::TestCase
   # Add more helper methods to be used by all tests here...
   include Contexts
-
-  #include Logins
+  include Logins
 
 
   # Add the infamous deny method...
