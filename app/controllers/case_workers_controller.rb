@@ -21,7 +21,6 @@ class CaseWorkersController < ApplicationController
         else
         @case_worker.user_id = @user.id
         if @case_worker.save
-            session[:user_id] = @case_worker.user.id
             flash[:notice] = "#{@case_worker.proper_name} was added to the system."
             redirect_to case_worker_path(@case_worker)
         else

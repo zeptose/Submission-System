@@ -12,7 +12,7 @@ class Ability
       can :manage, :all
 
     ## Foster parent
-    elsif user.role? :foster_parent
+    elsif user.role? :parent
       # foster parents can show and index categories
       can :index, Category
       can :show, Category
@@ -22,8 +22,8 @@ class Ability
       
       # they can read and update their own profile
       # can :show, Customer, user_id: user.id  # new, more compact method
-      can :show, Fosterparent do |c|  
-        c.id == user.fosterparent.id
+      can :show, Parent do |c|  
+        c.id == user.parent.id
       end
 
       can :show, User do |u|  
@@ -31,8 +31,8 @@ class Ability
       end
 
       # show updates
-      can :update, Fosterparent do |c|  
-        c.id == user.fosterparent.id
+      can :update, Parent do |c|  
+        c.id == user.parent.id
       end
 
       can :update, User do |u|  
@@ -55,7 +55,7 @@ class Ability
 
     else # Guest account
 
-      can :create, Fosterparent
+      can :create, Parent
 
     end
   end

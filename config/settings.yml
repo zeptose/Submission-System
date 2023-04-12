@@ -1,0 +1,15 @@
+# tokens and cookies configurations
+secret_key_base: 'SECRET TOKEN GOES HERE'
+session_name: 'SESSION NAME GOES HERE'
+
+# database configurations
+dev_database: 'gvcs_dev'
+test_database: 'gvcs_test'
+production_database: 'submissionsystem2023'
+db_user: 'gvcs_user'
+db_password: 'jnrmgae'
+
+# mailer configurations
+mailer_service: 'MAILER SERVICE GOES HERE'
+mailer_user: 'MAILER USER GOES HERE'
+mailer_password: 'MAILER PASSWORD GOES HERE'
