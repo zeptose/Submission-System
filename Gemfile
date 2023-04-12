@@ -33,9 +33,6 @@ gem 'jbuilder', '~> 2.5'
 gem 'bcrypt', '3.1.16'
 gem 'nokogiri', '1.13.3'
 
-# Use Capistrano for deployment
- # gem 'capistrano-rails', group: :development
-
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '1.10.2', require: false  # '1.4.6'
 
@@ -63,10 +60,6 @@ group :development, :test do
   # gem 'better_errors'
   # gem 'binding_of_caller'
   # gem 'meta_request'
-  gem 'capistrano', '3.1'
-  gem 'capistrano-rails',           '1.4.0'
-  gem 'capistrano-rbenv',           '2.1.4 '
-  gem 'capistrano-passenger',       '0.2.0'
   gem 'hirb', '0.7.3'
   gem 'faker', '2.16.0'
   gem 'populator', '1.0.0'
