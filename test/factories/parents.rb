@@ -1,5 +1,5 @@
 FactoryBot.define do
-  factory :foster_parent do
+  factory :parent do
     p1_first_name { "MyString" }
     p1_last_name { "MyString" }
     p2_first_name { "MyString" }

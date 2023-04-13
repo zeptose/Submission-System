@@ -55,6 +55,7 @@ GEM
     autoprefixer-rails (10.4.13.0)
       execjs (~> 2)
     bcrypt (3.1.16)
+    bcrypt_pbkdf (1.1.0)
     best_in_place (3.0.3)
       actionpack (>= 3.2)
       railties (>= 3.2)
@@ -64,6 +65,12 @@ GEM
     builder (3.2.4)
     byebug (11.1.3)
     cancancan (3.1.0)
+    capistrano (2.15.5)
+      highline
+      net-scp (>= 1.0.0)
+      net-sftp (>= 2.0.0)
+      net-ssh (>= 2.0.14)
+      net-ssh-gateway (>= 1.1.0)
     capybara (3.35.3)
       addressable
       mini_mime (>= 0.1.3)
@@ -128,6 +135,7 @@ GEM
     date (3.3.3)
     diff-lcs (1.5.0)
     docile (1.4.0)
+    ed25519 (1.3.0)
     erubi (1.12.0)
     execjs (2.8.1)
     factory_bot (6.2.1)
@@ -142,6 +150,7 @@ GEM
     ffi (1.15.5)
     globalid (1.1.0)
       activesupport (>= 5.0)
+    highline (2.1.0)
     hirb (0.7.3)
     i18n (1.12.0)
       concurrent-ruby (~> 1.0)
@@ -187,7 +196,7 @@ GEM
       builder
       minitest (>= 5.0)
       ruby-progressbar
-    msgpack (1.6.1)
+    msgpack (1.7.0)
     multi_test (0.1.2)
     net-imap (0.3.4)
       date
@@ -198,16 +207,24 @@ GEM
       timeout
     net-scp (4.0.0)
       net-ssh (>= 2.6.5, < 8.0.0)
+    net-sftp (4.0.0)
+      net-ssh (>= 5.0.0, < 8.0.0)
     net-smtp (0.3.3)
       net-protocol
     net-ssh (7.1.0)
+    net-ssh-gateway (2.0.0)
+      net-ssh (>= 4.0.0)
     nio4r (2.5.8)
+    nokogiri (1.13.3)
+      mini_portile2 (~> 2.8.0)
+      racc (~> 1.4)
     nokogiri (1.13.3-arm64-darwin)
       racc (~> 1.4)
     nokogiri (1.13.3-x86_64-darwin)
       racc (~> 1.4)
     nokogiri (1.13.3-x86_64-linux)
       racc (~> 1.4)
+    pg (1.4.6)
     populator (1.0.0)
     protobuf-cucumber (3.10.8)
       activesupport (>= 3.2)
@@ -292,11 +309,6 @@ GEM
       actionpack (>= 5.2)
       activesupport (>= 5.2)
       sprockets (>= 3.0.0)
-    sqlite3 (1.6.1)
-      mini_portile2 (~> 2.8.0)
-    sshkit (1.21.4)
-      net-scp (>= 1.1.2)
-      net-ssh (>= 2.8.0)
     sys-uname (1.2.2)
       ffi (~> 1.1)
     thor (1.2.1)
@@ -329,24 +341,24 @@ GEM
 
 PLATFORMS
   arm64-darwin-21
+  ruby
   x86_64-darwin-20
   x86_64-linux
 
 DEPENDENCIES
   bcrypt (= 3.1.16)
+  bcrypt_pbkdf
   best_in_place (= 3.0.3)
   bootsnap (= 1.10.2)
   byebug
   cancancan (= 3.1.0)
-  capistrano (= 3.11.2)
-  capistrano-passenger (= 0.2.0)
-  capistrano-rails (= 1.4.0)
-  capistrano-rbenv (= 2.1.4)
+  capistrano (= 2.15.5)
   capybara (= 3.35.3)
   coffee-rails (~> 4.2)
   cucumber (= 5.3.0)
   cucumber-rails (= 2.2.0)
   database_cleaner (= 2.0.1)
+  ed25519
   factory_bot_rails (= 6.2.0)
   faker (= 2.16.0)
   fast_jsonapi (= 1.5)
@@ -361,6 +373,7 @@ DEPENDENCIES
   minitest-rails (= 3.0.0)
   minitest-reporters (= 1.1.19)
   nokogiri (= 1.13.3)
+  pg
   populator (= 1.0.0)
   puma (~> 3.11)
   rails (= 5.2.6)
@@ -372,7 +385,6 @@ DEPENDENCIES
   simplecov (= 0.21.2)
   spring (= 2.1.1)
   spring-watcher-listen (= 2.0.1)
-  sqlite3
   time_date_helpers (= 0.0.4)
   turbolinks (~> 5)
   tzinfo-data

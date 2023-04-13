@@ -16,7 +16,7 @@ module Contexts
     puts "Built foster_parent users"
     create_categories
     puts "Built categories"
-    create_items
-    puts "Built items"
+    #create_items
+    #puts "Built items"
   end
 end

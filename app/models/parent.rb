@@ -1,17 +1,16 @@
-class FosterParent < ApplicationRecord
-
-
+class Parent < ApplicationRecord
   include AppHelpers::Deletions
+  include AppHelpers::Validations
   include AppHelpers::Activeable::InstanceMethods
   extend AppHelpers::Activeable::ClassMethods
 
-  
+  attr_accessor :username, :password, :password_confirmation, :role
   belongs_to :user
   has_many :assignments
 
   # Scopes
   scope :alphabetical,  -> { order(:p1_last_name, :p1_first_name) }
-  scope :search, ->(term) { where('first_name LIKE ? OR last_name LIKE ?', "#{term}%", "#{term}%") }
+  scope :search, ->(term) { where('first_name LIKE ? OR lat_name LIKE ?', "#{term}%", "#{term}%") }
 
 
   # Validations
@@ -24,12 +23,12 @@ class FosterParent < ApplicationRecord
   FAMILYSTYLE = ['Traditional', 'Therapeutic', 'Respite'] 
 
   # Callbacks
-  before_save    -> { strip_nondigits_from(:phone) }
-  before_update :deactive_user_if_foster_parent_inactive
+  before_save    -> { strip_nondigits_from(:phone_number) }
+  before_update :deactive_user_if_parent_inactive
 
 
   private
-  def deactive_user_if_foster_parent_inactive
+  def deactive_user_if_parent_inactive
     if !self.active && !self.user.nil?
       self.user.active = false
       self.user.save

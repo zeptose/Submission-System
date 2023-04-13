@@ -1,251 +1,359 @@
 {
   "Minitest": {
     "coverage": {
-      "/Users/ryanmcgrady/Desktop/67373/Submission-System/app/models/user.rb": {
+<<<<<<< HEAD
+      "/mnt/c/Users/annie/OneDrive/Documents/Submission-System/app/models/category.rb": {
         "lines": [
           1,
-          null,
-          1,
-          1,
-          1,
-          null,
-          null,
-          1,
-          null,
-          null,
-          null,
-          null,
-          null,
-          1,
-          2,
-          null,
-          null,
-          null,
-          1,
-          1,
+=======
+      "/Users/jasminenie/Desktop/Submission-System/app/models/category.rb": {
+        "lines": [
           1,
           1,
           1,
           1,
           null,
           null,
+>>>>>>> 90840ae80517714f9734eef361d8691cee9147ac
           1,
-          null,
-          1,
-          4,
-          4,
           null,
           null,
           1,
-          2,
           null,
           null,
+          1,
+          null,
+          null,
+          1,
+          0,
+          0,
+          0,
+          0,
+          null,
+          null,
+          1,
+          null,
+          null,
+          1,
+<<<<<<< HEAD
+=======
+          null,
+          1,
+          1,
+          0,
+          null,
+          0,
+          0,
+          null,
+>>>>>>> 90840ae80517714f9734eef361d8691cee9147ac
+          null,
+          null,
+          1,
+          0,
+          0,
+<<<<<<< HEAD
+          0,
+          0,
+=======
+>>>>>>> 90840ae80517714f9734eef361d8691cee9147ac
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/jasminenie/Desktop/Submission-System/app/models/application_record.rb": {
+        "lines": [
+          1,
           null,
           1,
           null
         ]
       },
-      "/Users/ryanmcgrady/Desktop/67373/Submission-System/app/models/application_record.rb": {
+      "/Users/jasminenie/Desktop/Submission-System/app/models/item.rb": {
         "lines": [
           1,
+<<<<<<< HEAD
+          0,
+          null,
+          0,
+          0,
+          null,
+          null,
+          null,
           1,
+          0,
+          0,
+=======
+          null,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+>>>>>>> 90840ae80517714f9734eef361d8691cee9147ac
+          null,
+          null,
+          1,
+          1,
+          null,
+          null,
+<<<<<<< HEAD
           null
         ]
       },
-      "/Users/ryanmcgrady/Desktop/67373/Submission-System/app/models/category.rb": {
+      "/mnt/c/Users/annie/OneDrive/Documents/Submission-System/app/models/application_record.rb": {
+        "lines": [
+=======
+          1,
+          null,
+>>>>>>> 90840ae80517714f9734eef361d8691cee9147ac
+          1,
+          1,
+          5,
+          null,
+          null,
+          null
+        ]
+      },
+<<<<<<< HEAD
+      "/mnt/c/Users/annie/OneDrive/Documents/Submission-System/app/models/item.rb": {
+=======
+      "/Users/jasminenie/Desktop/Submission-System/app/models/foster_parent.rb": {
+>>>>>>> 90840ae80517714f9734eef361d8691cee9147ac
+        "lines": [
+          1,
+          null,
+<<<<<<< HEAD
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          null,
+=======
+          0,
+          0,
+>>>>>>> 90840ae80517714f9734eef361d8691cee9147ac
+          null,
+          1,
+          1,
+          1,
+          null,
+<<<<<<< HEAD
+          null,
+          1,
+          1,
+          null,
+=======
+          null,
+          0,
+          0,
+          null,
+          null,
+          null,
+          0,
+          0,
+          0,
+>>>>>>> 90840ae80517714f9734eef361d8691cee9147ac
+          null,
+          1,
+          null,
+          1,
+          1,
+          5,
+          null,
+          null,
+          null
+        ]
+      },
+      "/mnt/c/Users/annie/OneDrive/Documents/Submission-System/app/controllers/application_controller.rb": {
         "lines": [
           0,
+<<<<<<< HEAD
           0,
+          null,
+=======
+>>>>>>> 90840ae80517714f9734eef361d8691cee9147ac
+          null,
+          null,
           0,
           0,
           null,
           null,
           0,
+          0,
+<<<<<<< HEAD
+          null,
+          null,
+=======
+          0,
+>>>>>>> 90840ae80517714f9734eef361d8691cee9147ac
+          0,
+          0,
+          0,
+          0,
+<<<<<<< HEAD
+          null,
+=======
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/Users/jasminenie/Desktop/Submission-System/app/models/ability.rb": {
+        "lines": [
+>>>>>>> 90840ae80517714f9734eef361d8691cee9147ac
+          0,
+          0,
+          null,
+          0,
+          null,
+          0,
+<<<<<<< HEAD
+          0,
+=======
+          null,
+          null,
+          null,
+          0,
+          null,
+          0,
+          null,
+>>>>>>> 90840ae80517714f9734eef361d8691cee9147ac
+          null,
+          0,
+          null,
+          0,
+          0,
+<<<<<<< HEAD
+          0,
+=======
           null,
           null,
           0,
           null,
           null,
-          0,
-          null,
-          null,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          null,
-          0,
+>>>>>>> 90840ae80517714f9734eef361d8691cee9147ac
           null,
           0,
           0,
           0,
           null,
+<<<<<<< HEAD
+          null,
+          0,
+          null
+        ],
+        "branches": {
+        }
+      },
+      "/mnt/c/Users/annie/OneDrive/Documents/Submission-System/app/controllers/case_workers_controller.rb": {
+        "lines": [
+=======
           0,
           0,
-          0,
+>>>>>>> 90840ae80517714f9734eef361d8691cee9147ac
           0,
           null,
           0,
           0,
           0,
+          null,
+<<<<<<< HEAD
           0,
           0,
+=======
+          0,
+          0,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+>>>>>>> 90840ae80517714f9734eef361d8691cee9147ac
+          null,
+          null,
+<<<<<<< HEAD
+          0,
+          0,
+          0,
+          0,
+=======
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+>>>>>>> 90840ae80517714f9734eef361d8691cee9147ac
+          0,
+          null,
+          0,
+          null,
+          0,
+          0,
+<<<<<<< HEAD
+          0,
+          0,
+=======
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/Users/jasminenie/Desktop/Submission-System/app/models/case_worker.rb": {
+        "lines": [
+          0,
+          null,
+          0,
+          0,
+>>>>>>> 90840ae80517714f9734eef361d8691cee9147ac
+          0,
+          0,
+<<<<<<< HEAD
+          0,
+          0,
+=======
+          null,
+          null,
+          null,
+>>>>>>> 90840ae80517714f9734eef361d8691cee9147ac
+          0,
+          null,
+          null,
+          0,
+          null,
+<<<<<<< HEAD
+          0,
+          null,
+          null,
+          0,
+          null,
+          0,
+=======
+          null,
+          null,
+          null,
           null,
           0
         ],
         "branches": {
         }
       },
-      "/Users/ryanmcgrady/Desktop/67373/Submission-System/app/models/item.rb": {
-        "lines": [
-          0,
-          null,
-          0,
-          0,
-          0,
-          null,
-          null,
-          0,
-          0,
-          null,
-          null,
-          0,
-          0,
-          0,
-          null,
-          null,
-          0,
-          0,
-          null,
-          null,
-          0,
-          null,
-          0,
-          0,
-          0,
-          0,
-          null,
-          0
-        ],
-        "branches": {
-        }
-      },
-      "/Users/ryanmcgrady/Desktop/67373/Submission-System/app/models/foster_parent.rb": {
-        "lines": [
-          0,
-          null,
-          null,
-          0,
-          0,
-          0,
-          null,
-          null,
-          0,
-          null,
-          null,
-          null,
-          0,
-          0,
-          null,
-          null,
-          null,
-          0,
-          0,
-          0,
-          null,
-          0,
-          null,
-          0,
-          null,
-          null,
-          0,
-          0,
-          null,
-          null,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ],
-        "branches": {
-        }
-      },
-      "/Users/ryanmcgrady/Desktop/67373/Submission-System/app/models/ability.rb": {
-        "lines": [
-          0,
-          0,
-          null,
-          0,
-          null,
-          0,
-          null,
-          null,
-          null,
-          0,
-          null,
-          0,
-          null,
-          null,
-          0,
-          null,
-          0,
-          0,
-          null,
-          null,
-          0,
-          null,
-          null,
-          null,
-          0,
-          0,
-          0,
-          null,
-          0,
-          0,
-          0,
-          null,
-          null,
-          0,
-          0,
-          0,
-          null,
-          0,
-          0,
-          0,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          0,
-          null,
-          0,
-          null,
-          0,
-          0,
-          0
-        ],
-        "branches": {
-        }
-      },
-      "/Users/ryanmcgrady/Desktop/67373/Submission-System/app/models/case_worker.rb": {
+      "/Users/jasminenie/Desktop/Submission-System/app/models/user.rb": {
         "lines": [
           0,
           null,
@@ -258,34 +366,104 @@
           null,
           null,
           null,
-          0,
-          null,
           null,
           null,
           0,
           0,
           null,
+>>>>>>> 90840ae80517714f9734eef361d8691cee9147ac
           null,
           null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
           null,
           null,
+          0,
+<<<<<<< HEAD
+          0,
+          0,
+          null,
+=======
+          null,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          null,
+          0,
           0
         ],
         "branches": {
         }
       },
-      "/Users/ryanmcgrady/Desktop/67373/Submission-System/app/controllers/application_controller.rb": {
+      "/Users/jasminenie/Desktop/Submission-System/app/controllers/application_controller.rb": {
         "lines": [
+>>>>>>> 90840ae80517714f9734eef361d8691cee9147ac
+          0,
+          0,
+          null,
+          null,
+          null,
+          0,
+          0,
+          0,
+<<<<<<< HEAD
+          null,
           0,
           0,
           0,
           null,
+=======
+          0,
+          null,
+          null,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          null,
+>>>>>>> 90840ae80517714f9734eef361d8691cee9147ac
+          0,
+          0,
+          0,
+          null,
+          null,
+<<<<<<< HEAD
           0
+=======
+          0,
+          null
+>>>>>>> 90840ae80517714f9734eef361d8691cee9147ac
         ],
         "branches": {
         }
       },
-      "/Users/ryanmcgrady/Desktop/67373/Submission-System/app/controllers/categories_controller.rb": {
+<<<<<<< HEAD
+      "/mnt/c/Users/annie/OneDrive/Documents/Submission-System/app/controllers/categories_controller.rb": {
+=======
+      "/Users/jasminenie/Desktop/Submission-System/app/controllers/categories_controller.rb": {
+>>>>>>> 90840ae80517714f9734eef361d8691cee9147ac
         "lines": [
           0,
           0,
@@ -369,30 +547,30 @@
         "branches": {
         }
       },
-      "/Users/ryanmcgrady/Desktop/67373/Submission-System/app/controllers/users_controller.rb": {
+<<<<<<< HEAD
+      "/mnt/c/Users/annie/OneDrive/Documents/Submission-System/app/controllers/foster_parents_controller.rb": {
+=======
+      "/Users/jasminenie/Desktop/Submission-System/app/controllers/users_controller.rb": {
+>>>>>>> 90840ae80517714f9734eef361d8691cee9147ac
         "lines": [
           0,
           0,
           0,
-          0,
           null,
           null,
+<<<<<<< HEAD
+          0,
+=======
+          null,
+          null,
+          null,
+          null,
+          null,
+>>>>>>> 90840ae80517714f9734eef361d8691cee9147ac
+          0,
+          0,
           0,
           null,
-          0,
-          0,
-          null,
-          0,
-          0,
-          0,
-          null,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
           0,
           0,
           0,
@@ -405,12 +583,52 @@
           0,
           0,
           0,
+          null,
           0,
+          0,
+          0,
+          0,
+<<<<<<< HEAD
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          null,
           0,
           0,
           null,
           0,
           null,
+          null,
+          0,
+          null,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+=======
+>>>>>>> 90840ae80517714f9734eef361d8691cee9147ac
+          0,
+          null,
+          0,
+          0,
+          null,
+          null,
+          0,
+          0,
+          0,
+          null,
           0,
           0,
           0,
@@ -419,13 +637,49 @@
           0,
           0,
           null,
-          null,
+<<<<<<< HEAD
           0
         ],
         "branches": {
         }
       },
-      "/Users/ryanmcgrady/Desktop/67373/Submission-System/app/controllers/items_controller.rb": {
+      "/mnt/c/Users/annie/OneDrive/Documents/Submission-System/app/controllers/home_controller.rb": {
+        "lines": [
+=======
+          null,
+          null,
+>>>>>>> 90840ae80517714f9734eef361d8691cee9147ac
+          0,
+          null,
+          0,
+          0,
+          null,
+          0,
+          0,
+          null,
+          0,
+          0,
+          null,
+          0,
+          0,
+          null,
+          0,
+          0,
+          null,
+          null,
+          0,
+          null,
+          null,
+          null
+        ],
+        "branches": {
+        }
+      },
+<<<<<<< HEAD
+      "/mnt/c/Users/annie/OneDrive/Documents/Submission-System/app/controllers/items_controller.rb": {
+=======
+      "/Users/jasminenie/Desktop/Submission-System/app/controllers/items_controller.rb": {
+>>>>>>> 90840ae80517714f9734eef361d8691cee9147ac
         "lines": [
           0,
           null,
@@ -495,7 +749,11 @@
         "branches": {
         }
       },
-      "/Users/ryanmcgrady/Desktop/67373/Submission-System/app/controllers/sessions_controller.rb": {
+<<<<<<< HEAD
+      "/mnt/c/Users/annie/OneDrive/Documents/Submission-System/app/controllers/sessions_controller.rb": {
+=======
+      "/Users/jasminenie/Desktop/Submission-System/app/controllers/sessions_controller.rb": {
+>>>>>>> 90840ae80517714f9734eef361d8691cee9147ac
         "lines": [
           0,
           0,
@@ -521,57 +779,41 @@
         "branches": {
         }
       },
-      "/Users/ryanmcgrady/Desktop/67373/Submission-System/app/controllers/home_controller.rb": {
+<<<<<<< HEAD
+      "/mnt/c/Users/annie/OneDrive/Documents/Submission-System/app/controllers/users_controller.rb": {
+=======
+      "/Users/jasminenie/Desktop/Submission-System/app/controllers/home_controller.rb": {
+>>>>>>> 90840ae80517714f9734eef361d8691cee9147ac
         "lines": [
           0,
-          null,
           0,
-          0,
-          null,
-          0,
-          0,
-          null,
-          0,
-          0,
-          null,
-          0,
-          0,
-          null,
           0,
           0,
           null,
           null,
+          null,
+          null,
+          null,
+          null,
+          null,
+<<<<<<< HEAD
           0,
-          null,
-          null,
+          0,
+=======
           null
         ],
         "branches": {
         }
       },
-      "/Users/ryanmcgrady/Desktop/67373/Submission-System/app/controllers/case_workers_controller.rb": {
+      "/Users/jasminenie/Desktop/Submission-System/app/controllers/case_workers_controller.rb": {
         "lines": [
+>>>>>>> 90840ae80517714f9734eef361d8691cee9147ac
           0,
           null,
           0,
           0,
           0,
           null,
-          0,
-          0,
-          null,
-          0,
-          0,
-          0,
-          null,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
           0,
           0,
           0,
@@ -586,28 +828,15 @@
           null,
           0,
           0,
-          null,
           0,
-          null,
-          null,
           0,
-          null,
           0,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
           0,
           0,
           0,
           null,
-          0,
           null,
-          0,
-          0,
+          null,
           0,
           null,
           0,
@@ -624,43 +853,17 @@
         "branches": {
         }
       },
-      "/Users/ryanmcgrady/Desktop/67373/Submission-System/app/controllers/foster_parents_controller.rb": {
+      "/mnt/c/Users/annie/OneDrive/Documents/Submission-System/app/models/ability.rb": {
         "lines": [
           0,
           0,
-          0,
           null,
-          null,
-          0,
-          0,
-          0,
           0,
           null,
           0,
-          0,
-          0,
-          null,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
           null,
           null,
-          0,
+          null,
           0,
           null,
           0,
@@ -668,6 +871,29 @@
           null,
           0,
           null,
+          0,
+          0,
+          null,
+          null,
+          0,
+          null,
+          null,
+          null,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          null,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
           0,
           null,
           null,
@@ -678,28 +904,160 @@
           null,
           null,
           null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
           0,
+          null,
+          0,
+          null,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+<<<<<<< HEAD
+      "/mnt/c/Users/annie/OneDrive/Documents/Submission-System/app/models/case_worker.rb": {
+=======
+      "/Users/jasminenie/Desktop/Submission-System/app/controllers/foster_parents_controller.rb": {
+>>>>>>> 90840ae80517714f9734eef361d8691cee9147ac
+        "lines": [
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          null,
+          0,
+          null,
+          null,
+          null,
+          0,
+          null,
+          null,
+          null,
+          0,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/mnt/c/Users/annie/OneDrive/Documents/Submission-System/app/models/foster_parent.rb": {
+        "lines": [
+          0,
+          null,
+          null,
+          0,
+          0,
+          0,
+          null,
+          null,
+          0,
+          null,
+          null,
+          null,
+          0,
+          0,
+          null,
+          null,
+          null,
+          0,
+          0,
+          0,
+          null,
+          0,
+          null,
+          0,
+          null,
+          null,
+          0,
+          0,
+          null,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/mnt/c/Users/annie/OneDrive/Documents/Submission-System/app/models/user.rb": {
+        "lines": [
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          null,
+          0,
+          null,
+<<<<<<< HEAD
+          null,
+          null,
+          null,
+          null,
+          0,
+          0,
+          null,
+          null,
+          null,
+=======
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+>>>>>>> 90840ae80517714f9734eef361d8691cee9147ac
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
           null,
           0,
           null,
           0,
           0,
           0,
-          null,
-          0,
-          0,
           0,
           null,
           0,
           0,
           0,
           null,
+          null,
+          0,
           0
         ],
         "branches": {
         }
       }
     },
-    "timestamp": 1679599093
+<<<<<<< HEAD
+    "timestamp": 1680292467
+=======
+    "timestamp": 1680208588
+>>>>>>> 90840ae80517714f9734eef361d8691cee9147ac
   }
 }

@@ -27,7 +27,7 @@ Given /^no setup yet$/ do
 #   destroy_customers
 end
 
-Given /^a logged in admin$/ do
+Given /^a logged in case_worker$/ do
   step "an initial setup"
   visit login_url
   fill_in "Username", :with => "mark"
@@ -35,7 +35,7 @@ Given /^a logged in admin$/ do
   click_button "Log In"
 end
 
-Given /^a logged in customer$/ do
+Given /^a logged in parent$/ do
   step "an initial setup"
   visit login_url
   fill_in "Username", :with => "alexe"

@@ -30,7 +30,7 @@ module Contexts
 
         def destroy_items
             @Application.delete
-            @InformationalInterview.delete
+            # @InformationalInterview.delete
             @PlacementRecord_i.delete
             @TrainingLogs.delete
 

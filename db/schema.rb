@@ -65,22 +65,6 @@ ActiveRecord::Schema.define(version: 2023_03_28_200253) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "foster_parents", force: :cascade do |t|
-    t.string "p1_first_name"
-    t.string "p1_last_name"
-    t.string "p2_first_name"
-    t.string "p2_last_name"
-    t.string "email"
-    t.string "phone_number"
-    t.integer "user_id"
-    t.boolean "active"
-    t.integer "open_beds"
-    t.string "family_style"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_foster_parents_on_user_id"
-  end
-
   create_table "items", force: :cascade do |t|
     t.string "name"
     t.string "instructions"
@@ -92,6 +76,22 @@ ActiveRecord::Schema.define(version: 2023_03_28_200253) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_items_on_category_id"
+  end
+
+  create_table "parents", force: :cascade do |t|
+    t.string "p1_first_name"
+    t.string "p1_last_name"
+    t.string "p2_first_name"
+    t.string "p2_last_name"
+    t.string "email"
+    t.string "phone_number"
+    t.integer "user_id"
+    t.boolean "active", default: true
+    t.integer "open_beds"
+    t.string "family_style"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_parents_on_user_id"
   end
 
   create_table "submissions", force: :cascade do |t|
