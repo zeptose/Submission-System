@@ -4,7 +4,13 @@ class AssignmentsController < ApplicationController
     authorize_resource
   
     def index
-      @incomplete_items = Assignment.incomplete.paginate(page: params[:page]).per_page(15)
+      if current_user.role?(:case_worker)
+        @incomplete_items = Assignment.incomplete.paginate(page: params[:page]).per_page(15)
+        @complete_items = Assignment.complete.paginate(page: params[:page]).per_page(15)
+      elsif current_user.role?(:parent)
+        @their_incomplete_items = Assignment.incomplete.for_parent.paginate(page: params[:page]).per_page(15)
+        @their_complete_items = Assignment.complete.for_parent.paginate(page: params[:page]).per_page(15)
+      end
     end
   
     def new
@@ -25,6 +31,7 @@ class AssignmentsController < ApplicationController
     end
   
     def show
+      
     end
   
     def update
@@ -48,8 +55,8 @@ class AssignmentsController < ApplicationController
         params.require(:case_worker).permit(:first_name, :last_name, :email, :phone_number, :username, :password, :password_confirmation)
       end
 
-      def foster_parent_params
-        params.require(:foster_parent).permit(:first_name, :last_name, :email, :phone_number, :active, :username, :password, :password_confirmation, :open_beds, :family_style)
+      def parent_params
+        params.require(:parent).permit(:p1_first_name, :p1_last_name, :p2_first_name, :p2_last_name, :email, :phone_number, :active, :username, :password, :password_confirmation, :open_beds, :family_style)
       end
 
       def item_params
@@ -57,6 +64,6 @@ class AssignmentsController < ApplicationController
       end
 
       def assignment_params
-        params.require(:assignment).permit(due_date:, :completion, :status)
+        params.require(:assignment).permit(:due_date, :completion, :status, :parent_id, :case_worker_id, :item_id)
       end
 end

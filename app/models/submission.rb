@@ -10,7 +10,7 @@ class Submission < ApplicationRecord
   validates_date :due_date, on_or_before: :today
 
   #Scope
-  scope :for_foster_parent, ->(foster_parent) { where(user_id: foster_parent.id) }
+  scope :for_parent, ->(parent) { where(user_id: parent.id) }
 end
 
 

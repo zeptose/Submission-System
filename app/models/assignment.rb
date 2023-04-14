@@ -1,12 +1,13 @@
 class Assignment < ApplicationRecord
   belongs_to :item
-  belongs_to :foster_parent
+  belongs_to :parent
   belongs_to :case_worker
   has_one :submission
 
   # Scopes
   scope :chronological, -> { order(due_date: :desc) }
   scope :incomplete,     -> { where(completion: false) }
+  scope :complete, -> { where(completion: true) }
 
   #Validations
   validates_date :due_date, after: :today
@@ -30,4 +31,6 @@ class Assignment < ApplicationRecord
         self.status = "Due in {xweeks} week(s)"
       end 
   
+  end
+
 end

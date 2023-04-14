@@ -20,8 +20,8 @@
                             <tr>
                                 <td><%= link_to "#{parent.p1_last_name}, #{parent.p1_first_name}", parent_path(parent)%></td>
                                 <td><%= "#{parent.email}" %> </td>
-                                <td><%= "3 Forms or whatevs"%></td>
-                                <td><%= "3 Incomplete or whatevs"%></td>
+                                <td><%= link_to "#{parent.assignments.size}", assignments_path(parent)%></td>
+                                <td><%= "#{parent.assignments.incomplete.size}"%></td>
                             </tr>
                         <% end %>
                     <% end %>
