@@ -1,7 +1,7 @@
 require 'bundler/capistrano'
 # require 'puma/capistrano'
 
-server 'cmuis.net', :web, :app, :db, primary: true
+server 'rook-cmuis.net', :web, :app, :db, primary: true
 
 set :application, 'submission_system'
 set :user, 'profh'
