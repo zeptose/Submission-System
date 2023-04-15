@@ -12,7 +12,7 @@ set :scm, 'git'
 set :git_enable_submodules, 1
 set :deploy_via, :remote_cache
 set :repository, "git@github.com:profh/gvcs.git"
-set :branch, 'main'
+set :branch, 'exp'
 
 set :use_sudo, false
 
