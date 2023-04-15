@@ -49,6 +49,9 @@ gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'cancancan', '3.1.0'   # '3.1.0'
 
+gem 'ed25519'
+gem 'bcrypt_pbkdf'
+
 # View gems
 gem 'will_paginate'
 gem 'simple_form', '5.1.0'
