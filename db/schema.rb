@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_03_22_021515) do
+ActiveRecord::Schema.define(version: 2023_03_22_193003) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -33,6 +33,17 @@ ActiveRecord::Schema.define(version: 2023_03_22_021515) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "case_workers", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "email"
+    t.integer "user_id"
+    t.string "phone_number"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_case_workers_on_user_id"
+  end
+
   create_table "categories", force: :cascade do |t|
     t.string "name"
     t.boolean "active", default: true
@@ -51,6 +62,31 @@ ActiveRecord::Schema.define(version: 2023_03_22_021515) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_items_on_category_id"
+  end
+
+  create_table "parents", force: :cascade do |t|
+    t.string "p1_first_name"
+    t.string "p1_last_name"
+    t.string "p2_first_name"
+    t.string "p2_last_name"
+    t.string "email"
+    t.string "phone_number"
+    t.integer "user_id"
+    t.boolean "active", default: true
+    t.integer "open_beds"
+    t.string "family_style"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_parents_on_user_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "username"
+    t.string "password_digest"
+    t.string "role"
+    t.boolean "active"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

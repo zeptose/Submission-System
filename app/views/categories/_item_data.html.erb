@@ -1,5 +1,5 @@
 <% unless @category_items.empty? %>
-    <%# if !current_user.nil? && current_user.role?(:admin) %>
+    <% if !current_user.nil? && current_user.role?(:case_worker) %>
         <div class="card">
             <div class="card-content">
             <h4><%= "#{@category.name}" %> Files </h4>
@@ -13,7 +13,12 @@
                     <% for item in @category_items %>
                         <tr>
                             <td><%= link_to "#{item.name}", item_path(item) %></td>
-                            <td> <%= link_to "#{item.filename}", rails_blob_path(item.file, disposition: "attachment") %> </td>
+                            <% if !item.file.nil? %>
+                                <td> <%= link_to "#{item.filename}", rails_blob_path(item.file, disposition: "attachment") %> </td>
+                            <% else %>
+                                 <td>No linked files.</td> 
+                             <% end %> 
+
                             <% if item.active %>
                                 <td>Active</td>
                             <% else %>
@@ -23,20 +28,23 @@
                     <% end%>
                 </table><br>
 
-                <%# if can? :new, Item %>
+                <% if can? :new, Item %>
                     <%= link_to "Add a New Item", new_item_path(category_id: @category.id), class: 'waves-effect waves-light btn btn-alert' %>
-                <%# end %>
+                <% end %>
             </div>
         </div>
-    <%# end%>
+    <% end%>
 <% else%>
     <div class="card">
         <div class="card-content">
-            <%# if can? :new, ItemPrice %>
+            <% if can? :new, Item %>
                 <h4><%= "#{@category.name}" %> Files </h4>
                 <p>There are currently no files associated with this category. Please add a file item below.</p><br>
                 <%= link_to "Add a New Item", new_item_path(category_id: @category.id), class: 'waves-effect waves-light btn btn-alert' %>
-            <%# end %>
+            <% else %> 
+                <h4><%= "#{@category.name}" %> Files </h4>
+                <p>There are currently no files associated with this category. </p><br>
+            <% end %>
         </div>
     </div>
 <% end %>

@@ -2,14 +2,14 @@
   <div class="container">
     <ul class="left hide-on-med-and-down">
         <li><%= link_to 'Home', home_path %></li>
-        <li><%= link_to 'My Account', customer_path(current_user.customer) %></li>
-        <li><%= link_to 'My Orders', orders_path %></li>
-        <li><%= link_to 'Items', items_path %></li>
+        <li><%= link_to 'Checklist Categories', categories_path %></li>
+        <li><%= link_to 'To-Do List', home_path %></li>
 
     </ul>
     <ul class="right">
-
+      <li><%= link_to 'Profile', parent_path(current_user.parent) %></li>
       <li><%= link_to 'Logout', logout_path %></li>
     </ul>
   </div>
 </nav>
+
