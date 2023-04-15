@@ -216,6 +216,8 @@ GEM
     nio4r (2.5.9)
     nokogiri (1.13.3-arm64-darwin)
       racc (~> 1.4)
+    nokogiri (1.13.3-x86_64-linux)
+      racc (~> 1.4)
     pg (0.21.0)
     populator (1.0.0)
     protobuf-cucumber (3.10.8)
@@ -333,6 +335,7 @@ GEM
 
 PLATFORMS
   arm64-darwin-21
+  x86_64-linux
 
 DEPENDENCIES
   bcrypt (= 3.1.16)
