@@ -55,9 +55,11 @@ gem 'bcrypt_pbkdf'
 # View gems
 gem 'will_paginate'
 gem 'simple_form', '5.1.0'
-gem 'materialize-form', git: 'https://github.com/cmu-is-projects/materialize-form.git'
+# gem 'materialize-form', git: 'https://github.com/cmu-is-projects/materialize-form.git'
 gem 'best_in_place', '3.0.3'
-gem 'materialize-sass', '1.0.0'
+# gem 'materialize-sass', '1.0.0'
+gem 'materialize-sass', '0.100.2.1'
+gem 'materialize-form', '1.0.8'
 
 
 group :development, :test do
