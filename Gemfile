@@ -8,9 +8,9 @@ ruby '2.6.9'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '5.2.6'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+# gem 'sqlite3'
 # Switch to postgres for a database
-# gem 'pg', '0.21.0'
+gem 'pg', '0.21.0'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
@@ -64,9 +64,9 @@ group :development, :test do
   # gem 'binding_of_caller'
   # gem 'meta_request'
   gem 'capistrano',                 '2.15.5'
-  gem 'capistrano-rails',           '1.4.0'
-  gem 'capistrano-rbenv',           '2.1.4 '
-  gem 'capistrano-passenger',       '0.2.0'
+  # gem 'capistrano-rails',           '1.4.0'
+  # gem 'capistrano-rbenv',           '2.1.4 '
+  # gem 'capistrano-passenger',       '0.2.0'
   gem 'hirb', '0.7.3'
   gem 'faker', '2.16.0'
   gem 'populator', '1.0.0'
