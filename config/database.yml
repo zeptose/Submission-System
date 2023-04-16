@@ -21,7 +21,7 @@ test:
 
 production:
   <<: *default
-  database: <%= ENV['DATABASE_NAME'] %>
-  username: <%= ENV['DATABASE_USER'] %>
-  password: <%= ENV['DATABASE_PASSWORD'] %>
+  database: 'submissionsystem2023'  <%# ENV['DATABASE_NAME'] %>
+  username: 'gvcs_user' <%# ENV['DATABASE_USER'] %>
+  password: 'jnrmgae'   <%# ENV['DATABASE_PASSWORD'] %>
   
