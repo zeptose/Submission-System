@@ -25,9 +25,10 @@ Rails.application.routes.draw do
     resources :submissions
    end
 
-   resources :assignments
+   resources :assignments, only: [:new, :create]
 
-   #get 'parents/:id/assignments', to: 'parents#assignments', as: :parent_assignments
+   #get 'parents/:id/assignments', to: 'assignment#index', as: :parent_assignments
+   #get 'parents/:id/assignments/:a_id', to: 'assignment#show', as: :parent_assignment
    
 
    patch 'categories/:id/toggle_active_category', to: 'categories#toggle_active_category', as: :toggle_active_category

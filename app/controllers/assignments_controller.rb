@@ -7,6 +7,7 @@ class AssignmentsController < ApplicationController
       if current_user.role?(:case_worker)
         @parent = Parent.find_by(id: params[:parent_id])
         # All assignments, including complete and incomplete
+        @assignment = @parent.assignments
         @incomplete_assignments = @parent.assignments.incomplete.paginate(page: params[:page]).per_page(15)
         @complete_assignments = @parent.assignments.complete.paginate(page: params[:page]).per_page(15)
         # find assignments by parent

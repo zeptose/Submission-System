@@ -25,6 +25,10 @@ class Parent < ApplicationRecord
   before_save    -> { strip_nondigits_from(:phone_number) }
   before_update :deactive_user_if_parent_inactive
 
+  def proper_name
+    "#{p1_first_name} #{p1_last_name}"
+  end
+
 
   private
   def deactive_user_if_parent_inactive
