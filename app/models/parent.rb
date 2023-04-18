@@ -12,7 +12,6 @@ class Parent < ApplicationRecord
   scope :alphabetical,  -> { order(:p1_last_name, :p1_first_name) }
   scope :search, ->(term) { where('first_name LIKE ? OR lat_name LIKE ?', "#{term}%", "#{term}%") }
 
-
   # Validations
   validates_presence_of :p1_first_name, :p1_last_name
   validates_format_of :phone_number, with: /\A(\d{10}|\(?\d{3}\)?[-. ]\d{3}[-.]\d{4})\z/, message: "should be 10 digits (area code needed) and delimited with dashes only"

@@ -1,0 +1,31 @@
+<div class="card">
+        <div class="card-content">
+            <h4>Inactive Foster Parents</h4>
+
+            <% if @active_parents.empty? %>
+                <p>There are no inactive foster parents on file at this time.</p>
+             
+            <%else %>
+
+                <table class = "striped highlight">
+                    <thead>
+                        <th>Foster Parent Names</th>
+                        <th>Email</th>
+                        <th>Assigned Forms</th>
+                        <th>Incomplete</th>
+                        
+                    </thead>
+                    <% for parent in @active_parents %>
+                        <% if parent.active?%>
+                            <tr>
+                                <td><%= link_to "#{parent.p1_last_name}, #{parent.p1_first_name}", parent_path(parent)%></td>
+                                <td><%= "#{parent.email}" %> </td>
+                                <td><%= link_to "#{parent.assignments.size}", parent_assignments_path(parent) %> </td>
+                                <td><%= "#{parent.assignments.incomplete.size}" %> </td>
+                            </tr>
+                        <% end %>
+                    <% end %>
+                </table>
+            <%end%>
+        </div>
+    </div>

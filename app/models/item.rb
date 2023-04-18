@@ -18,7 +18,6 @@ class Item < ApplicationRecord
 
   validates :name, presence: true, uniqueness: { case_sensitive: false }
   validate :category_is_active_in_the_system, on: :create
-  validates_date :due_date, after: :today
 
   # Callbacks
   before_destroy :cannot_destroy_object
