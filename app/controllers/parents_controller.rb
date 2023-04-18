@@ -66,6 +66,10 @@ class ParentsController < ApplicationController
         redirect_to parent_path(@parent)
       end
     end
+
+    def assignments
+      @assignments = Assignment.for_parent(@parent.id)
+    end
   
     private
   

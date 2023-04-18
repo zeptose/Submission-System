@@ -26,6 +26,8 @@ Rails.application.routes.draw do
    end
 
    resources :assignments
+
+   #get 'parents/:id/assignments', to: 'parents#assignments', as: :parent_assignments
    
 
    patch 'categories/:id/toggle_active_category', to: 'categories#toggle_active_category', as: :toggle_active_category

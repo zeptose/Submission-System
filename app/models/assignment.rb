@@ -1,7 +1,6 @@
 class Assignment < ApplicationRecord
   belongs_to :item
   belongs_to :parent
-  belongs_to :case_worker
   has_one :submission
 
   # Scopes
@@ -16,20 +15,20 @@ class Assignment < ApplicationRecord
 
   #Method
   def updatestatus 
-      if self.due_date > Date.today 
+    due_date = self.due_date.to_datetime
+    x = -1 * (((Date.today)- due_date).to_i)
+      if due_date < Date.today 
         self.status = "Overdue"
-        self.assignment.save
-      end 
-
-      if ((Date.today + 1.week).to_i - self.due_date.to_i)/86400 > 7 
-        x = ((Date.today + 1.week).to_i - self.due_date.to_i)/86400
-        self.status = "Due in {x} day(s)"
-      end 
-
-      if ((Date.today + 1.week).to_i - self.due_date.to_i)/86400 <= 7 
-        x = ((Date.today + 1.week).to_i - self.due_date.to_i) / 86400
-        xweeks = floor(x / 7)
-        self.status = "Due in {xweeks} week(s)"
+        # self.save!
+      
+      elsif x < 7
+        self.status = "Due in #{x} day(s)"
+      
+      else 
+        xweeks = x/7
+        xweeks = xweeks.floor()
+        self.status = "Due in #{xweeks} week(s)"
+    
       end 
   
   end

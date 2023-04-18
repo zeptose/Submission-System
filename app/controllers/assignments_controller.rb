@@ -5,12 +5,11 @@ class AssignmentsController < ApplicationController
   
     def index
       if current_user.role?(:case_worker)
-        # All assignments, including complete and incomplete
-        @assignments = Assignment.all
-        @incomplete_assignments = Assignment.incomplete.paginate(page: params[:page]).per_page(15)
-        @complete_assignments = Assignment.complete.paginate(page: params[:page]).per_page(15)
-        # find assignments by parent
         @parent = Parent.find_by(id: params[:parent_id])
+        # All assignments, including complete and incomplete
+        @incomplete_assignments = @parent.assignments.incomplete.paginate(page: params[:page]).per_page(15)
+        @complete_assignments = @parent.assignments.complete.paginate(page: params[:page]).per_page(15)
+        # find assignments by parent
       elsif current_user.role?(:parent)
         @their_incomplete_assignments = Assignment.incomplete.for_parent(current_user).paginate(page: params[:page]).per_page(15)
         @their_complete_assignments = Assignment.complete.for_parent(current_user).paginate(page: params[:page]).per_page(15)
@@ -25,7 +24,8 @@ class AssignmentsController < ApplicationController
       @assignment = Assignment.new(assignment_params)
   
       if @assignment.save
-        redirect_to assignment_path(@assignment)
+        @parent = @assignment.parent
+        redirect_to parent_assignments_path(@parent) 
       else
         render action: 'new'
       end
@@ -55,19 +55,16 @@ class AssignmentsController < ApplicationController
       def set_assignment
         @assignment = Assignment.find(params[:id])
       end
-      def case_worker_params
-        params.require(:case_worker).permit(:first_name, :last_name, :email, :phone_number, :username, :password, :password_confirmation)
-      end
 
-      def parent_params
-        params.require(:parent).permit(:p1_first_name, :p1_last_name, :p2_first_name, :p2_last_name, :email, :phone_number, :active, :username, :password, :password_confirmation, :open_beds, :family_style)
-      end
+      # def parent_params
+      #   params.require(:parent).permit(:p1_first_name, :p1_last_name, :p2_first_name, :p2_last_name, :email, :phone_number, :active, :username, :password, :password_confirmation, :open_beds, :family_style)
+      # end
 
-      def item_params
-        params.require(:item).permit(:name, :instructions, :filename, :file, :due_date, :active, :category_id)
-      end
+      # def item_params
+      #   params.require(:item).permit(:name, :instructions, :filename, :file, :due_date, :active, :category_id)
+      # end
 
       def assignment_params
-        params.require(:assignment).permit(:due_date, :completion, :status, :parent_id, :case_worker_id, :item_id)
+        params.require(:assignment).permit(:due_date, :completion, :status, :parent_id, :item_id)
       end
 end
