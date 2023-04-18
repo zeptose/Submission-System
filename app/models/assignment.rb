@@ -8,6 +8,7 @@ class Assignment < ApplicationRecord
   scope :chronological, -> { order(due_date: :desc) }
   scope :incomplete,     -> { where(completion: false) }
   scope :complete, -> { where(completion: true) }
+  scope :for_parent, ->(parent) { where(user_id: parent.id) }
 
   #Validations
   validates_date :due_date, after: :today

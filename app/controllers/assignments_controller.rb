@@ -5,11 +5,15 @@ class AssignmentsController < ApplicationController
   
     def index
       if current_user.role?(:case_worker)
-        @incomplete_items = Assignment.incomplete.paginate(page: params[:page]).per_page(15)
-        @complete_items = Assignment.complete.paginate(page: params[:page]).per_page(15)
+        # All assignments, including complete and incomplete
+        @assignments = Assignment.all
+        @incomplete_assignments = Assignment.incomplete.paginate(page: params[:page]).per_page(15)
+        @complete_assignments = Assignment.complete.paginate(page: params[:page]).per_page(15)
+        # find assignments by parent
+        @parent = Parent.find_by(id: params[:parent_id])
       elsif current_user.role?(:parent)
-        @their_incomplete_items = Assignment.incomplete.for_parent.paginate(page: params[:page]).per_page(15)
-        @their_complete_items = Assignment.complete.for_parent.paginate(page: params[:page]).per_page(15)
+        @their_incomplete_assignments = Assignment.incomplete.for_parent(current_user).paginate(page: params[:page]).per_page(15)
+        @their_complete_assignments = Assignment.complete.for_parent(current_user).paginate(page: params[:page]).per_page(15)
       end
     end
   

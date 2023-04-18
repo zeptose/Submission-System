@@ -18,9 +18,12 @@ Rails.application.routes.draw do
    resources :items, except: [:destroy, :index] # in the future, items should be destroyed if there are no submissions attached
 
    resources :case_workers
-   resources :parents
-   resources :submissions
-   resources :assignments
+   
+   # access assignments and submissions for a given parent
+   resources :parents do
+    resources :assignments
+    resources :submissions
+   end
 
    patch 'categories/:id/toggle_active_category', to: 'categories#toggle_active_category', as: :toggle_active_category
    patch 'items/:id/toggle_active_item', to: 'items#toggle_active_item', as: :toggle_active_item
