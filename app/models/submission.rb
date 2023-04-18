@@ -1,7 +1,7 @@
 class Submission < ApplicationRecord
   belongs_to :item
   has_one :assignments
-  belongs_to :foster_parent, :through => :assignments
+  belongs_to :parent, :through => :assignments
 
 
   has_one_attached :file

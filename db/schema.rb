@@ -36,13 +36,11 @@ ActiveRecord::Schema.define(version: 2023_03_28_200253) do
   create_table "assignments", force: :cascade do |t|
     t.integer "item_id"
     t.integer "parent_id"
-    t.integer "case_worker_id"
     t.string "due_date"
     t.boolean "completion"
     t.string "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["case_worker_id"], name: "index_assignments_on_case_worker_id"
     t.index ["item_id"], name: "index_assignments_on_item_id"
     t.index ["parent_id"], name: "index_assignments_on_parent_id"
   end
