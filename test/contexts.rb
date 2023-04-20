@@ -2,12 +2,14 @@
 require './test/sets/users'
 require './test/sets/categories'
 require './test/sets/items'
+require './test/sets/case_workers'
 
 module Contexts
   # explicitly include all sets of contexts used for testing 
   include Contexts::Users
   include Contexts::Categories
   include Contexts::Items
+  include Contexts::CaseWorkers
 
   def create_all
     create_admin_users

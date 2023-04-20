@@ -63,7 +63,7 @@ group :development, :test do
   # gem 'better_errors'
   # gem 'binding_of_caller'
   # gem 'meta_request'
-  gem 'capistrano',                 '2.15.5'
+  gem 'capistrano',                 '3.1'
   gem 'capistrano-rails',           '1.4.0'
   gem 'capistrano-rbenv',           '2.1.4 '
   gem 'capistrano-passenger',       '0.2.0'

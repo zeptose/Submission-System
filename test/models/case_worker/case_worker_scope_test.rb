@@ -6,12 +6,13 @@ class CaseWorkerTest < ActiveSupport::TestCase
         # creates the users that are for admin users/case workers first
         # then creates the case workers 
         create_admin_users
-          create_caseworkers
+        create_caseworkers
         end
-
-  should "show that scope exists for alphabeticizing case workers" do
-    assert_equal ["Gibson", "Heart", "Keith", "Paytas"], Parent.alphabetical.all.map(&:last_name)
+      
+    should ""
+    should "show that scope exists for alphabeticizing case workers" do
+      assert_equal ["Gibson", "Heart", "Keith", "Paytas"], CaseWorker.alphabetical.all.map(&:last_name)
+    end
   end
-
   
 end

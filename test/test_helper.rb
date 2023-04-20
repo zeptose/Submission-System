@@ -30,6 +30,7 @@ class ActiveSupport::TestCase
   # Add more helper methods to be used by all tests here...
   include Contexts
   include Logins
+ 
 
 
   # Add the infamous deny method...

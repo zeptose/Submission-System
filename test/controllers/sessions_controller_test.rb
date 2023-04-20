@@ -31,4 +31,4 @@ class SessionsControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to home_path
   end
 end
-end
+

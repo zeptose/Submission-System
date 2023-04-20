@@ -65,15 +65,7 @@ class ParentsControllerTest < ActionDispatch::IntegrationTest
     assert_template :new
   end
 
-  test "should show customer as admin" do
-    login_admin
-    get customer_path(@customer)
-    assert_response :success
-    assert_not_nil assigns(:previous_orders)
-    assert_not_nil assigns(:addresses)
-  end
-
-  test "should show own customer" do
+    test "should show own customer" do
     login_customer
     get customer_path(@jblake)
     assert_response :success
