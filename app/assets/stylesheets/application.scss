@@ -11,7 +11,50 @@
  * It is generally better to create a new file per style scope.
  *
  *= require_self
- *= require overrides
  */
 
  @import "materialize";
+// this is for the flash notice message
+#topbar_style {
+  background: #f0e8d3;
+  background-clip: padding-box;
+  padding-top: 10px;
+  padding-left: 20px;
+  padding-bottom: 15px;
+  margin: 0px;
+}
+
+#topbar_style a {
+  color: #518458;
+}
+
+#padded_content {
+  padding-left: 20px;
+  margin: 0px;
+}
+
+#flash_box {
+  font-weight: bold;
+  text-align: center;
+  background: #fae5aa;
+  font-size: 1.25em;
+  background-clip: padding-box;
+}
+
+#nav {
+  background: #518458;
+}
+
+.btn {
+  background-color: #bf8c15;
+}
+
+h4 {
+   font-weight: bold;
+   color: #bf8c15;
+}
+
+.container {
+  margin-left: 100px;
+  margin-right: 100px;
+}
