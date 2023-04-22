@@ -21,11 +21,13 @@ Rails.application.routes.draw do
    
    # access assignments and submissions for a given parent
    resources :parents do
-    resources :assignments
-    resources :submissions
+    resources :assignments do
+      resources :submissions
+    end
    end
 
-   resources :assignments, only: [:new, :create]
+   resources :assignments
+   resources :submissions
 
    #get 'parents/:id/assignments', to: 'assignment#index', as: :parent_assignments
    #get 'parents/:id/assignments/:a_id', to: 'assignment#show', as: :parent_assignment

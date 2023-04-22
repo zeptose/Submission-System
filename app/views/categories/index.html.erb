@@ -1,4 +1,11 @@
-<%= render partial: "partials/show2_structure", locals: {model_name: "category", 
-                                                         primary: "active_category_data", 
-                                                         secondary: "inactive_category_data",
-                                                         sidebar: nil} %>
+<% if !current_user.nil? && current_user.role?(:case_worker) %>
+    <%= render partial: "partials/show2_structure", locals: {model_name: "category", 
+                                                            primary: "active_category_data", 
+                                                            secondary: "inactive_category_data",
+                                                            sidebar: nil} %>
+<% elsif !current_user.nil? && current_user.role?(:parent) %>
+    <%= render partial: "partials/show2_structure", locals: {model_name: "category", 
+                                                            primary: "category_by_assignments", 
+                                                            secondary: nil,
+                                                            sidebar: nil} %>
+<% end %>

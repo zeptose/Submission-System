@@ -40,18 +40,15 @@ class Ability
       end
       
       # they can see if an assignment belongs to them
-      # can :show, Assignment, fosterparent.id: user.customer.id
-      
+      can :show, Assignment do |this_assignment|
+        my_assignments = user.parent.assignments.map(&:id) 
+        my_assignments.include? this_assignment.id
+      end
 
-      # can :show, Assignment do |this_assignment|
-      #   my_assignments = user.fosterparent.assignments.map(&:id) 
-      #   my_assignments.include? this_assignment.id
-      # end
+      can :index, Assignment # controller to filter assignments to just foster parent
 
-      # can :index, Assignment # controller to filter assignments to just customer
-
-      # can :index, Submissions  # controller to filter submissions to just customer
-      # can :create, Submissions  # whole point is to let customers submit files...
+      can :index, Submission  # controller to filter submissions to just foster parent
+      can :create, Submission  # whole point is to let customers submit files...
 
     else # Guest account
 

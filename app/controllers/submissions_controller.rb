@@ -4,6 +4,17 @@ class SubmissionsController < ApplicationController
     authorize_resource
   
     def index
+      if current_user.role?(:case_worker)
+        # find a list of submissions by parent and assignment
+        @parent = Parent.find_by(id: params[:parent_id])
+        @assignment = Assignment.find_by(id: params[:parent_id, :assignment_id])
+        @submissions = @assignment.submissions.paginate(page: params[:page]).per_page(15)
+
+        # find a list of all submissions by parent only
+        @submissions_by_parent = Submissions.for_parent(@parent.id).paginate(page: params[:page]).per_page(15)
+      elsif current_user.role?(:parent)
+        @submissions = Submissions.for_parent(current_user).paginate(page: params[:page]).per_page(15)
+      end
     end
   
     def new

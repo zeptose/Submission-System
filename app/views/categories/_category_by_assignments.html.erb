@@ -1,0 +1,35 @@
+<div class="card">
+        <div class="card-content">
+            <h4><%= "Checklist Categories for #{current_user.parent.p1_last_name}, #{current_user.parent.p1_first_name}"%> </h4>
+
+            <% if @assignments.empty? %>
+                <p>There are no active categories at this time because you have not been assigned anything.</p>
+             
+            <%else %>
+
+
+                <table class = "striped highlight">
+                    <thead>
+                        <th>Category Name</th>
+                        <th>Number of Incomplete Assigned Items</th>
+                        <th>Completion</th>
+                    </thead>
+                    
+                    <% for category in @unique_categories %>
+                        <% if category.active?%>
+                            
+                            <tr>
+                                <td><%= link_to "#{category.name}", category_path(category)%></td>
+                                <td><%= "#{@unique_item_count_by_category[category]}" %> </td>
+                                <% if @categories_with_incomplete_assignments.include?(category)%>
+                                    <td><%= "Incomplete"%></td>
+                                <% else %>
+                                    <td><%= "Complete"%></td>
+                                <% end %>
+                            </tr>
+                        <% end %>
+                    <% end %>
+                </table>
+            <%end%>
+        </div>
+    </div>

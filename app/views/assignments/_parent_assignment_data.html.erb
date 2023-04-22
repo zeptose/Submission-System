@@ -1,0 +1,33 @@
+<div class="card">
+    <div class="card-content">
+        <h4><%= "To-Do List (#{@incomplete_assignments.size})" %></h4>
+
+        <% if @assignments.empty? %>
+            <p>There is nothing assigned to you at this time. Check back later.</p>
+         
+        <% else %>
+
+
+            <table class = "striped highlight">
+                <thead>
+                    <th>Category Name</th>
+                    <th>Item Name</th>
+                    <th>Due Date</th>
+                    <th>Status</th>
+                    <th>Completion</th>
+                </thead>
+                <% for assignment in @assignments %>
+                    <% if !assignment.completion %>
+                        <tr>
+                            <td><%= link_to "#{assignment.item.category.name}", category_path(assignment.item.category)%></td>
+                            <td><%= link_to "#{assignment.item.name}", item_path(assignment.item) %> </td>
+                            <td><%= "#{assignment.due_date}" %></td>
+                            <td><%= "#{assignment.updatestatus}" %></td>
+                            <td><%= "#{assignment.completion}" %></td>
+                        </tr>
+                    <% end %>
+                <% end %>
+            </table>
+        <%end%>
+    </div>
+</div>

@@ -12,8 +12,9 @@ class AssignmentsController < ApplicationController
         @complete_assignments = @parent.assignments.complete.paginate(page: params[:page]).per_page(15)
         # find assignments by parent
       elsif current_user.role?(:parent)
-        @their_incomplete_assignments = Assignment.incomplete.for_parent(current_user).paginate(page: params[:page]).per_page(15)
-        @their_complete_assignments = Assignment.complete.for_parent(current_user).paginate(page: params[:page]).per_page(15)
+        @assignments = Assignment.for_parent(current_user.parent.id).paginate(page: params[:page]).per_page(15)
+        @incomplete_assignments = Assignment.incomplete.for_parent(current_user.parent.id).paginate(page: params[:page]).per_page(15)
+        @complete_assignments = Assignment.complete.for_parent(current_user.parent.id).paginate(page: params[:page]).per_page(15)
       end
     end
   
