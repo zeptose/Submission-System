@@ -4,33 +4,33 @@ class CaseWorkersControllerTest < ActionDispatch::IntegrationTest
   setup do
     # no login this time; will differ for lots of tests
     @user = FactoryBot.create(:user)
-    @caseworker = FactoryBot.create(:caseworker, user: @user)
+    @case_worker = FactoryBot.create(:caseworker, user: @user)
   end
 
   # caseworker is the admin, in admin path
   test "should get index" do
     login_admin
-    get caseworkers_path
+    get case_workers_path
     assert_response :success
     assert_not_nil assigns(:active_caseworkers)
     assert_not_nil assigns(:inactive_caseworkers)
   end
 
   test "should get new" do
-    get new_caseworker_path
+    get new_case_worker_path
     assert_response :success
   end
 
   test "should create caseworker as admin" do
     login_admin
     assert_difference('Caseworker.count') do
-      post caseworkers_path, params: { caseworker: { first_name: "Alex", last_name: "Gibson", 
+      post caseworkers_path, params: { case_worker: { first_name: "Alex", last_name: "Gibson", 
       email: "alex888@aol.com", phone: "718-371-9252", active: true, 
       username: "agibson", password: "secret", password_confirmation: "secret", 
       role: "caseworker", greeting: "Alex!" } }
     end
     assert_equal "Alex Gibson was added to the system.", flash[:notice]
-    assert_redirected_to caseworker_path(Caseworker.last)
+    assert_redirected_to case_worker_path(Caseworker.last)
 
     # post customers_path, params: { customer: { first_name: "Ted", last_name: nil, email: "tgruberman@example.com", phone: "412-268-2323", active: true } }
     # assert_template :new
@@ -49,13 +49,13 @@ class CaseWorkersControllerTest < ActionDispatch::IntegrationTest
 
   test "should not allow guests to become caseworkers" do
     assert_difference('Caseworker.count') do
-      post caseworkers_path, params: { caseworker: { role: "admin", first_name: "Alex", last_name: "Gibson", 
+      post case_workers_path, params: { case_worker: { role: "admin", first_name: "Alex", last_name: "Gibson", 
       email: "alex888@aol.com", phone: "718-371-9252", active: true, username: "agibson", password: "secret", 
       password_confirmation: "secret", greeting: "Alex!" } }
     end
     assert_equal "Alex Gibson was added to the system.", flash[:notice]
     alex = Caseworker.last
-    assert_redirected_to caseworker_path(ted)
+    assert_redirected_to case_worker_path(alex)
     alex.user.reload
     deny alex.user.role?(:caseworker), "ROLE: #{alex.user.role} :: #{session[:user_id]}"
     assert alex.user.role?(:parent), "ROLE: #{alex.user.role}"
@@ -64,12 +64,12 @@ class CaseWorkersControllerTest < ActionDispatch::IntegrationTest
   test "should not create if customer or user invalid" do
     login_admin
     # invalid user
-    post caseworkers_path, params: { caseworker: { first_name: "Alex", last_name: "Gibson", 
+    post caseworkers_path, params: { case_worker: { first_name: "Alex", last_name: "Gibson", 
     email: "alex888@aol.com", phone: "718-371-9252", active: true, username: nil, password: "secret", 
     password_confirmation: "secret", role: "caseworker", greeting: "Alex!" } }
     assert_template :new
     # invalid owner
-    post caseworkers_path, params: { caseworker: { first_name: nil, last_name: "Gibson", 
+    post caseworkers_path, params: { case_worker: { first_name: nil, last_name: "Gibson", 
     email: "alex888@aol.com", phone: "718-371-9252", active: true, username: "agibson", 
     password: "secret", password_confirmation: "secret", role: "caseworker", greeting: "Alex!" } }
     assert_template :new
@@ -102,18 +102,18 @@ class CaseWorkersControllerTest < ActionDispatch::IntegrationTest
 
   test "should not get edit for another customer" do
     login_caseworker
-    get edit_caseworker_path(@caseworker)
+    get edit_caseworker_path(@case_worker)
     assert_response :redirect
   end
 
   test "should update caseworker" do
     login_admin
-    patch caseworker_path(@caseworker), params: { caseworker: { first_name: @caseworker.first_name, 
-    last_name: @caseworker.last_name, email: "eddie@example.com", active: @customer.active } }
-    assert_redirected_to caseworker_path(@caseworker)
+    patch caseworker_path(@case_worker), params: { caseworker: { first_name: @case_worker.first_name, 
+    last_name: @case_worker.last_name, email: "eddie@example.com", active: @case_worker.active } }
+    assert_redirected_to caseworker_path(@case_worker)
 
-    patch caseworker_path(@caseworker), params: { caseworker: { first_name: @caseworker.first_name, last_name: nil, 
-    email: "eddie@example.con", phone: @caseworker.phone, active: @caseworker.active } }
+    patch caseworker_path(@case_worker), params: { caseworker: { first_name: @case_worker.first_name, last_name: nil, 
+    email: "eddie@example.com", phone: @case_worker.phone, active: @case_worker.active } }
     assert_template :edit
   end
 
