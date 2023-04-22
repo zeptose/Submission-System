@@ -9,8 +9,7 @@ FactoryBot.define do
     association :user
     active { true }
     boolean { "MyString" }
-    open_beds { "MyString" }
-    integer { "MyString" }
+    open_beds { rand(1..9) }
     family_style { "MyString" }
   end
 end
