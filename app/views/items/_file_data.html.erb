@@ -22,13 +22,13 @@
         
         
 
-        <%# if !current_user.nil? && current_user.role?(:admin) %>
+        <% if !current_user.nil? && current_user.role?(:case_worker) %>
             <% if @item.active %>
                 <%= link_to "Make Inactive", toggle_active_item_path, method: :patch, class: 'waves-effect waves-light btn btn-alert'%>
             <% else %>
                 <%= link_to "Make Active", toggle_active_item_path, method: :patch, class: 'waves-effect waves-light btn btn-alert'%>
             <% end %>
-        <%# end%>
+        <% end%>
 
     </div>
 </div>

@@ -1,5 +1,6 @@
 class CategoriesController < ApplicationController
     before_action :set_category, only: [:show, :edit, :update, :destroy, :toggle_active_category]
+    before_action :set_unique_items_by_category, only: [:index, :show], if: -> { current_user.role?(:parent) }
     before_action :check_login
     authorize_resource
   
@@ -16,18 +17,6 @@ class CategoriesController < ApplicationController
         # categories that have incomplete assignments, therefore the category is not complete
         @categories_with_incomplete_assignments = @unique_categories.select do |category|
           @assignments.any? { |assignment| assignment.item.category == category && !assignment.completion }
-        end
-
-        # use a hash functiont to find unique items associated with each unique category that has been assigned to the user
-        @unique_item_count_by_category = Hash.new { |hash, key| hash[key] = Set.new }
-
-        @assignments.each do |assignment|
-          category = assignment.item.category
-          @unique_item_count_by_category[category].add(assignment.item)
-        end
-
-        @unique_item_count_by_category.each do |category, unique_items|
-          @unique_item_count_by_category[category] = unique_items.size
         end
 
       end
@@ -50,6 +39,25 @@ class CategoriesController < ApplicationController
       else
         render action: 'new'
       end
+    end
+
+    def set_unique_items_by_category
+      @assignments = Assignment.for_parent(current_user.parent.id).paginate(page: params[:page]).per_page(15)
+
+      # use a hash function to find unique items associated with each unique category that has been assigned to the user
+      @unique_item_count_by_category = Hash.new { |hash, key| hash[key] = Set.new }
+      @unique_items_by_category = Hash.new { |hash, key| hash[key] = Set.new }
+
+      @assignments.each do |assignment|
+        category = assignment.item.category
+        @unique_item_count_by_category[category].add(assignment.item)
+        @unique_items_by_category[category].add(assignment.item)
+      end
+
+      @unique_item_count_by_category.each do |category, unique_items|
+        @unique_item_count_by_category[category] = unique_items.size
+      end
+
     end
 
     def destroy

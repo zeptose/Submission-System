@@ -1,0 +1,20 @@
+<div class="card">
+    <div class="card-content">
+        <h4><%= "#{@category.name}" %> Files </h4>
+        <table class = "striped highlight">
+            <thead>
+                <th>Section Items</th>
+                <th>Completion</th>
+                <th>Latest Submission</th>
+            </thead>
+
+            <% for item in @unique_items_by_category[@category] %>
+                <tr>
+                    <td><%= link_to "#{item.name}", item_path(item) %></td>
+                    <td><%= "Incomplete"%></td>
+                    <td><%= "Submission File" %></td>
+                </tr>
+            <% end%>
+        </table><br>
+    </div>
+</div>

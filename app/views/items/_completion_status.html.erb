@@ -1,0 +1,21 @@
+<div class="card">
+    <div class="card-content">
+        <% if @assignments.any? { |assignment| assignment.item == @item && !assignment.completion } %>
+            <div class = "completion_column_container">
+                <div class = "completion_column">
+                    <h4>Completion </h4>
+                    <h4 style="color: #f04735">Incomplete</h4>
+                </div>
+                <div class = "completion_column">
+                    <% incomplete_assignment = @assignments.find { |assignment| assignment.item == @item && !assignment.completion } %>
+                    <h4>Due Date</h4>
+                    <h4 style="color: black"><%= "#{incomplete_assignment.due_date}" %></h4>
+                </div>
+            </div>
+        <% else %>
+            <h4>Completion </h4>
+            <h4 style="color: #518458">Complete</h4>
+        <% end %>
+
+    </div>
+</div>
