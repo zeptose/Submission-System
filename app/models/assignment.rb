@@ -11,8 +11,19 @@ class Assignment < ApplicationRecord
 
   #Validations
   validates_date :due_date, after: :today
+  validate :single_incomplete_assignment_allowed
 
   #Method
+
+  def single_incomplete_assignment_allowed
+    if completion == false
+      incomplete_assignments = Assignment.where(parent: parent, item: item, completion: false)
+      if incomplete_assignments.exists? && (new_record? || incomplete_assignments.where.not(id: id).exists?)
+        errors.add(:base, "Only one incomplete assignment is allowed for the same parent and item")
+      end
+    end
+  end
+
   def updatestatus 
     due_date = self.due_date.to_datetime
     x = -1 * (((Date.today)- due_date).to_i)

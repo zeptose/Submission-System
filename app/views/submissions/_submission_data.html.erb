@@ -1,0 +1,12 @@
+<div class="card">
+    <div class="card-content">
+        <h4><%= "#{@submission.date_completed}: #{@submission.assignment.item.name}"%></h4>
+
+        <% if !@submission.nil? && !@submission.file.nil? %>
+            <b>File:</b> <%= link_to "#{@submission.filename}", rails_blob_path(@submission.file, disposition: "attachment") %> <br><br>
+        <% else %>
+            <b>File:</b> No linked files. <br><br>
+        <% end %>
+
+    </div>
+</div>

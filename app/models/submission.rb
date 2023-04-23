@@ -4,6 +4,7 @@ class Submission < ApplicationRecord
   has_one :item, through: :assignment
   has_one_attached :file
   after_create :mark_assignment_complete
+  after_destroy :mark_assignment_incomplete
 
   scope :chronological, -> { order(date_completed: :desc) }
 
@@ -17,6 +18,10 @@ class Submission < ApplicationRecord
   private
   def mark_assignment_complete
     assignment.update(completion: true)
+  end
+
+  def mark_assignment_incomplete
+    assignment.update(completion: false)
   end
 end
 

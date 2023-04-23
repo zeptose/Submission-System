@@ -55,6 +55,10 @@ class Ability
         my_submissions.include? this_submission.id
       end
 
+      can :show, Submission
+      can :update, Submission
+      can :destroy, Submission
+
     else # Guest account
 
       can :create, Parent

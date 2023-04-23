@@ -58,14 +58,6 @@ class AssignmentsController < ApplicationController
         @assignment = Assignment.find(params[:id])
       end
 
-      # def parent_params
-      #   params.require(:parent).permit(:p1_first_name, :p1_last_name, :p2_first_name, :p2_last_name, :email, :phone_number, :active, :username, :password, :password_confirmation, :open_beds, :family_style)
-      # end
-
-      # def item_params
-      #   params.require(:item).permit(:name, :instructions, :filename, :file, :due_date, :active, :category_id)
-      # end
-
       def assignment_params
         params.require(:assignment).permit(:due_date, :completion, :status, :parent_id, :item_id)
       end

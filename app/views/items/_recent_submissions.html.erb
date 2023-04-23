@@ -14,7 +14,7 @@
                 <% for submission in @submissions %>
                 <tr>
                     <td><%= link_to "#{submission.date_completed.strftime("%m/%d/%y")}", submission_path(submission) %></td>
-                    <% if !submission.file.nil? %>
+                    <% if !submission.nil? && !submission.file.nil? %>
                         <td> <%= link_to "#{submission.filename}", rails_blob_path(submission.file, disposition: "attachment") %> </td>
                     <% else %>
                         <td>No linked files.</td> 

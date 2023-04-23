@@ -41,13 +41,20 @@ class SubmissionsController < ApplicationController
     def update
       if @submission.update_attributes(submission_params)
         flash[:notice] = "Successfully updated #{@submission}."
-        redirect_to submission_path
+        redirect_to submission_path(@submission)
       else
         render action: 'edit'
       end
     end
   
     def destroy
+      if @submission.destroy
+        flash[:notice] = "Successfully deleted submission of #{@submission.assignment.item.name} from the system."
+        redirect_to item_path(@submission.assignment.item)
+      else
+        flash[:notice] = "Unable to delete."
+        redirect_to submission_path(@submission)
+      end
     end
 
     

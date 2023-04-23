@@ -11,8 +11,18 @@
             <% for item in @unique_items_by_category[@category] %>
                 <tr>
                     <td><%= link_to "#{item.name}", item_path(item) %></td>
-                    <td><%= "Incomplete"%></td>
-                    <td><%= "Submission File" %></td>
+                    <% if item.assignments.exists?(completion: false)%>
+                        <td style="color: #f04735"><%= "Incomplete"%></td>
+                    <% else %>
+                        <td style="color: #518458"><%= "Complete"%></td>
+                    <% end %>
+
+                    <% latest_submission = Submission.joins(:assignment).where(assignments: { item_id: item.id }).order(created_at: :desc).first %>
+                    <% if !latest_submission.nil? && !latest_submission.file.nil?  %>
+                        <td> <%= link_to "#{latest_submission.filename}", rails_blob_path(latest_submission.file, disposition: "attachment") %> </td>
+                    <% else %>
+                        <td>No linked files.</td> 
+                    <% end %>
                 </tr>
             <% end%>
         </table><br>
