@@ -49,6 +49,11 @@ class Ability
 
       can :index, Submission  # controller to filter submissions to just foster parent
       can :create, Submission  # whole point is to let customers submit files...
+      
+      can :show, Submission do |this_submission|
+        my_submissions = user.parent.assignments.map(&:submission).compact
+        my_submissions.include? this_submission.id
+      end
 
     else # Guest account
 

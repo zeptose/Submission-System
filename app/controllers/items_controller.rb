@@ -14,7 +14,7 @@ class ItemsController < ApplicationController
   
       if @item.save
         flash[:notice] = "#{@item.name} was added to the system."
-        redirect_to item_path(@item)
+        redirect_to category_path(@item.category)
       else
         render action: 'new'
       end
@@ -27,6 +27,10 @@ class ItemsController < ApplicationController
       if current_user.role?(:parent)
         # all assignments that have been assigned to the user
         @assignments = Assignment.for_parent(current_user.parent.id).paginate(page: params[:page]).per_page(15)
+        
+        @item = Item.find(params[:id])
+        parent_assignments = @assignments.select { |assignment| assignment.item == @item }
+        @submissions = parent_assignments.map(&:submission).compact
       end
       
     end

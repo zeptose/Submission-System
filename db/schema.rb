@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 2023_03_28_200253) do
   create_table "assignments", force: :cascade do |t|
     t.integer "item_id"
     t.integer "parent_id"
-    t.string "due_date"
+    t.date "due_date"
     t.boolean "completion"
     t.string "status"
     t.datetime "created_at", null: false
@@ -93,12 +93,13 @@ ActiveRecord::Schema.define(version: 2023_03_28_200253) do
   end
 
   create_table "submissions", force: :cascade do |t|
-    t.string "date_completed"
+    t.date "date_completed"
+    t.string "filename"
     t.string "file"
-    t.integer "item_id"
+    t.integer "assignment_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["item_id"], name: "index_submissions_on_item_id"
+    t.index ["assignment_id"], name: "index_submissions_on_assignment_id"
   end
 
   create_table "users", force: :cascade do |t|

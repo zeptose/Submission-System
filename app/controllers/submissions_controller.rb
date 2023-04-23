@@ -1,6 +1,6 @@
 class SubmissionsController < ApplicationController
     before_action :set_submission, only: [:show, :edit, :update, :destroy]
-    before_action :check_login, only: [:show, :edit, :update]
+    before_action :check_login, only: [:show, :edit, :update, :create]
     authorize_resource
   
     def index
@@ -25,7 +25,8 @@ class SubmissionsController < ApplicationController
       @submission = Submission.new(submission_params)
   
       if @submission.save
-        redirect_to submission_path(@submission)
+        flash[:notice] = "Submission for #{@submission.assignment.item.name} was added to the system."
+        redirect_to item_path(@submission.assignment.item)
       else
         render action: 'new'
       end
@@ -54,12 +55,8 @@ class SubmissionsController < ApplicationController
       def set_submission
         @submission = Submission.find(params[:id])
       end
-
-      def item_params
-        params.require(:item).permit(:name, :instructions, :filename, :file, :due_date, :active, :category_id)
-      end
       
       def submission_params
-        params.require(:submission).permit(date_completed:, :file)
+        params.require(:submission).permit(:date_completed, :file, :filename, :item_id, :assignment_id)
       end
 end

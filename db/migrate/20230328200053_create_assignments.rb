@@ -3,7 +3,7 @@ class CreateAssignments < ActiveRecord::Migration[5.2]
     create_table :assignments do |t|
       t.references :item, foreign_key: true
       t.references :parent, foreign_key: true
-      t.string :due_date
+      t.date :due_date
       t.boolean :completion
       t.string :status
 

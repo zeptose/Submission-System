@@ -22,9 +22,9 @@
                                 <td><%= link_to "#{category.name}", category_path(category)%></td>
                                 <td><%= "#{@unique_item_count_by_category[category]}" %> </td>
                                 <% if @categories_with_incomplete_assignments.include?(category)%>
-                                    <td><%= "Incomplete"%></td>
+                                    <td style="color: #f04735"><%= "Incomplete"%></td>
                                 <% else %>
-                                    <td><%= "Complete"%></td>
+                                    <td style="color: #518458"><%= "Complete"%></td>
                                 <% end %>
                             </tr>
                         <% end %>

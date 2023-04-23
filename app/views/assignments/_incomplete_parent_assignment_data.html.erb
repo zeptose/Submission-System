@@ -1,6 +1,6 @@
 <div class="card">
         <div class="card-content">
-            <h4>Assigned Forms for: <% @parent %> </h4>
+            <h4><%= "Incomplete Assigned Forms for: #{@parent.p1_last_name}, #{@parent.p1_first_name}"%></h4>
 
             <% if @incomplete_assignments.empty? %>
                 <p>There are no incomplete assignments at this time.</p>

@@ -1,10 +1,36 @@
 <div class="card">
     <div class="card-content">
         <h4><%= "#{@item.name} Recent Submissions "%></h4>
+        
+        <table class = "striped highlight">
+
+            <% if @submissions.empty? %>
+                <p>There are no submissions for this item.</p>
+            <% else %>
+                <thead>
+                    <th>Date Completed</th>
+                    <th>File</th>
+                </thead>
+                <% for submission in @submissions %>
+                <tr>
+                    <td><%= link_to "#{submission.date_completed.strftime("%m/%d/%y")}", submission_path(submission) %></td>
+                    <% if !submission.file.nil? %>
+                        <td> <%= link_to "#{submission.filename}", rails_blob_path(submission.file, disposition: "attachment") %> </td>
+                    <% else %>
+                        <td>No linked files.</td> 
+                    <% end %>
+                </tr>
+                <% end%>
+            <% end %>
+
+        </table><br>
 
         
-        
 
-
+        <% if can? :new, Submission %>
+            <% if @assignments.any? { |assignment| assignment.item == @item && !assignment.completion }%>
+                <%= link_to "Add a New Submission", new_submission_path(item_id: @item.id), class: 'waves-effect waves-light btn btn-alert' %>
+            <% end %>
+        <% end %>
     </div>
 </div>
