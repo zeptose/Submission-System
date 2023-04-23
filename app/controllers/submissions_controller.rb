@@ -1,6 +1,6 @@
 class SubmissionsController < ApplicationController
-    before_action :set_submission, only: [:show, :edit, :update, :destroy]
-    before_action :check_login, only: [:show, :edit, :update, :create]
+    before_action :set_submission, only: [:show, :edit, :destroy]
+    before_action :check_login, only: [:show, :edit, :create]
     authorize_resource
   
     def index
@@ -44,19 +44,14 @@ class SubmissionsController < ApplicationController
     def show
     end
   
-    def update
-      if @submission.update_attributes(submission_params)
-        flash[:notice] = "Successfully updated #{@submission}."
-        redirect_to submission_path(@submission)
-      else
-        render action: 'edit'
-      end
-    end
-  
     def destroy
+      @assignment = @submission.assignment
+      @parent = @assignment.parent
+      @item = @assignment.item
+
       if @submission.destroy
         flash[:notice] = "Successfully deleted submission of #{@submission.assignment.item.name} from the system."
-        redirect_to item_path(@submission.assignment.item)
+        redirect_to parent_show_path(id: @item.id, parent_id: @parent.id)
       else
         flash[:notice] = "Unable to delete."
         redirect_to submission_path(@submission)

@@ -17,7 +17,7 @@
                         <td style="color: #518458"><%= "Complete"%></td>
                     <% end %>
 
-                    <% latest_submission = Submission.joins(:assignment).where(assignments: { item_id: item.id }).order(created_at: :desc).first %>
+                    <% latest_submission = Submission.chronological.joins(:assignment).where(assignments: { item_id: item.id }).order(created_at: :desc).first %>
                     <% if !latest_submission.nil? && !latest_submission.file.nil?  %>
                         <td> <%= link_to "#{latest_submission.filename}", rails_blob_path(latest_submission.file, disposition: "attachment") %> </td>
                     <% else %>

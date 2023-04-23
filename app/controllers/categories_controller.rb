@@ -1,6 +1,6 @@
 class CategoriesController < ApplicationController
     before_action :set_category, only: [:show, :edit, :update, :destroy, :toggle_active_category]
-    before_action :set_unique_items_by_category, only: [:index, :show], if: -> { current_user.role?(:parent) }
+    before_action :set_unique_items_by_category_for_parent, only: [:index, :show], if: -> { current_user.role?(:parent) }
     before_action :check_login
     authorize_resource
   
@@ -30,6 +30,26 @@ class CategoriesController < ApplicationController
       @category = Category.find(params[:id])
       @category_items = @category.items
     end
+
+    def item_show
+      @category = Category.find(params[:id])
+      @parent = Parent.find(params[:parent_id])
+      @assignments = Assignment.for_parent(@parent.id).paginate(page: params[:page]).per_page(15)
+
+      @unique_item_count_by_category = Hash.new { |hash, key| hash[key] = Set.new }
+      @unique_items_by_category = Hash.new { |hash, key| hash[key] = Set.new }
+
+      @assignments.each do |assignment|
+        category = assignment.item.category
+        @unique_item_count_by_category[category].add(assignment.item)
+        @unique_items_by_category[category].add(assignment.item)
+      end
+
+      @unique_item_count_by_category.each do |category, unique_items|
+        @unique_item_count_by_category[category] = unique_items.size
+      end
+      
+    end
   
     def create
       @category = Category.new(category_params)
@@ -41,7 +61,7 @@ class CategoriesController < ApplicationController
       end
     end
 
-    def set_unique_items_by_category
+    def set_unique_items_by_category_for_parent
       @assignments = Assignment.for_parent(current_user.parent.id).paginate(page: params[:page]).per_page(15)
 
       # use a hash function to find unique items associated with each unique category that has been assigned to the user

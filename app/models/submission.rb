@@ -12,7 +12,7 @@ class Submission < ApplicationRecord
   validates_date :date_completed
 
   #Scope
-  scope :for_parent, ->(parent) { where(user_id: parent.id) }
+  scope :for_parent, ->(parent_id) { where(parent_id: parent_id) }
 
 
   private

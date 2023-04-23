@@ -39,7 +39,9 @@ class ItemsController < ApplicationController
         @parent = Parent.find(params[:parent_id])
         @assignments = Assignment.where(item: @item, parent: @parent)
         
-        @submissions = @assignments.map(&:submission).compact
+        @submissions = Submission.joins(:assignment)
+                         .where(assignments: { id: @assignments.pluck(:id) })
+                         .chronological
       end
     end
   
