@@ -12,8 +12,13 @@ class Assignment < ApplicationRecord
   #Validations
   validates_date :due_date, after: :today
   validate :single_incomplete_assignment_allowed
+  validate :parent_item_is_active_in_the_system, on: :create
 
   #Method
+  def parent_item_is_active_in_the_system
+    is_active_in_system(:category)
+    is_active_in_system(:item)
+  end
 
   def single_incomplete_assignment_allowed
     if completion == false

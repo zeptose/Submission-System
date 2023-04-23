@@ -61,13 +61,16 @@ class CategoriesController < ApplicationController
     end
 
     def destroy
-      if @category.destroy
-        flash[:notice] = "Successfully deleted #{@category.name} from the system."
-        redirect_to categories_path
-      else
-        flash[:notice] = "Unable to delete because there are item(s) in category."
-        redirect_to category_path(@category)
+      @category = Category.find(params[:id])
+    
+      begin
+        @category.destroy!
+        flash[:success] = 'Category was successfully deleted.'
+      rescue ActiveRecord::InvalidForeignKey => e
+        flash[:error] = 'Cannot delete this Category: there are associated Items.'
       end
+      
+      redirect_to categories_path
     end
   
     def edit

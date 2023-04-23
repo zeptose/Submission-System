@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
-    before_action :set_item, only: [:show, :edit, :update, :toggle_active_item]
-    before_action :check_login, only: [:show, :edit, :update]
+    before_action :set_item, only: [:show, :edit, :update, :toggle_active_item, :destroy]
+    before_action :check_login, only: [:show, :edit, :update, :destroy]
     authorize_resource
   
     def new
@@ -49,6 +49,20 @@ class ItemsController < ApplicationController
         redirect_to item_path
       else
         render action: 'edit'
+      end
+    end
+
+    def destroy
+      @item = Item.find(params[:id])
+      @category = @item.category
+    
+      begin
+        @item.destroy!
+        flash[:success] = 'Item was successfully deleted.'
+        redirect_to category_path(@category)
+      rescue ActiveRecord::InvalidForeignKey => e
+        flash[:error] = 'Cannot delete this Item: there are associated Assignments or Submissions.'
+        redirect_to item_path(@item)
       end
     end
 
