@@ -1,6 +1,4 @@
 class ItemsController < ApplicationController
-
-
     before_action :set_item, only: [:show, :edit, :update, :toggle_active_item]
     before_action :check_login, only: [:show, :edit, :update]
     authorize_resource
@@ -31,8 +29,18 @@ class ItemsController < ApplicationController
         @item = Item.find(params[:id])
         parent_assignments = @assignments.select { |assignment| assignment.item == @item }
         @submissions = parent_assignments.map(&:submission).compact
+      end   
+    end
+
+    def parent_show
+      if current_user.role?(:case_worker)
+        # all assignments that have been assigned to the particular parent that I'm looking at
+        @item = Item.find(params[:id])
+        @parent = Parent.find(params[:parent_id])
+        @assignments = Assignment.where(item: @item, parent: @parent)
+        
+        @submissions = @assignments.map(&:submission).compact
       end
-      
     end
   
     def update

@@ -19,6 +19,8 @@ class SubmissionsController < ApplicationController
   
     def new
       @submission = Submission.new
+      @item = Item.find(params[:item_id])
+      @parent = Parent.find(params[:parent_id])
     end
   
     def create

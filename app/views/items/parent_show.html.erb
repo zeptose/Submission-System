@@ -1,0 +1,7 @@
+<% if !current_user.nil? && current_user.role?(:case_worker) %>
+    <%= render partial: "partials/show_structure", locals: {model_name: "item", 
+                                                            object: @item,
+                                                            primary: "recent_submissions", 
+                                                            secondary: nil,
+                                                            sidebar: "completion_status"} %>
+<% end %>

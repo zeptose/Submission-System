@@ -3,7 +3,7 @@
         <% if @assignments.any? { |assignment| assignment.item == @item && !assignment.completion } %>
             <div class = "completion_column_container">
                 <div class = "completion_column">
-                    <h4>Completion Status </h4>
+                    <h4>Status </h4>
                     <h4 style="color: #f04735">Incomplete</h4>
                 </div>
                 <div class = "completion_column">
@@ -13,7 +13,7 @@
                 </div>
             </div>
         <% else %>
-            <h4>Completion Status</h4>
+            <h4>Status</h4>
             <h4 style="color: #518458">Complete</h4>
         <% end %>
 

@@ -31,7 +31,7 @@ Rails.application.routes.draw do
 
    #get 'parents/:id/assignments', to: 'assignment#index', as: :parent_assignments
    #get 'parents/:id/assignments/:a_id', to: 'assignment#show', as: :parent_assignment
-   
+   get 'items/:id/parent_show', to: 'items#parent_show', as: 'parent_show'
 
    patch 'categories/:id/toggle_active_category', to: 'categories#toggle_active_category', as: :toggle_active_category
    patch 'items/:id/toggle_active_item', to: 'items#toggle_active_item', as: :toggle_active_item

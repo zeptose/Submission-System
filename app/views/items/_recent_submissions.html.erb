@@ -27,10 +27,14 @@
 
         
 
-        <% if can? :new, Submission %>
-            <% if @assignments.any? { |assignment| assignment.item == @item && !assignment.completion }%>
+        
+        <% if @assignments.any? { |assignment| assignment.item == @item && !assignment.completion }%>
+            <% if !current_user.nil? && current_user.role?(:case_worker) %>
+                <%= link_to "Add a New Submission", new_submission_path(item_id: @item.id, parent_id: @parent.id), class: 'waves-effect waves-light btn btn-alert' %>
+            <% elsif !current_user.nil? && current_user.role?(:parent) %>
                 <%= link_to "Add a New Submission", new_submission_path(item_id: @item.id), class: 'waves-effect waves-light btn btn-alert' %>
             <% end %>
         <% end %>
+        
     </div>
 </div>
