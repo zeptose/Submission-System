@@ -28,7 +28,11 @@ class SubmissionsController < ApplicationController
   
       if @submission.save
         flash[:notice] = "Submission for #{@submission.assignment.item.name} was added to the system."
-        redirect_to item_path(@submission.assignment.item)
+        if current_user.role?(:parent)
+          redirect_to item_path(@submission.assignment.item)
+        elsif current_user.role?(:case_worker)
+          redirect_to parent_show_path(id: @submission.item.id, parent_id: @submission.parent.id)
+        end
       else
         render action: 'new'
       end
