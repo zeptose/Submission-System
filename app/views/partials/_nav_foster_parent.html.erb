@@ -3,7 +3,7 @@
     <ul class="left hide-on-med-and-down">
         <li><%= link_to 'Home', home_path %></li>
         <li><%= link_to 'Checklist Categories', categories_path %></li>
-        <li><%= link_to "To-Do List", assignments_path %></li>
+        <li><%= link_to "To-Do List (#{@incomplete_assignments.size})", assignments_path %></li>
 
     </ul>
     <ul class="right">

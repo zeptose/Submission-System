@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
     protect_from_forgery with: :exception
+    before_action :fetch_incomplete_assignments, if: -> { !current_user.nil? && current_user.role?(:parent) }
   # current user, check 
   
     # just show a flash message instead of full CanCan exception
@@ -28,6 +29,10 @@ class ApplicationController < ActionController::Base
   
     def check_login
       redirect_to login_path, alert: "You need to log in to view this page." if current_user.nil?
+    end
+
+    def fetch_incomplete_assignments
+      @incomplete_assignments = Assignment.incomplete.for_parent(current_user.parent.id).paginate(page: params[:page]).per_page(15)
     end
   
   

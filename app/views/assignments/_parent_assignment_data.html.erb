@@ -2,8 +2,8 @@
     <div class="card-content">
         <h4><%= "To-Do List (#{@incomplete_assignments.size})" %></h4>
 
-        <% if @assignments.empty? %>
-            <p>There is nothing assigned to you at this time. Check back later.</p>
+        <% if @incomplete_assignments.empty? %>
+            <p>There are no incomplete assignments at this time. Check back later.</p>
          
         <% else %>
 
