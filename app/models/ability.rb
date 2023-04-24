@@ -5,6 +5,7 @@ class Ability
     # set user to new User if not logged in
     user ||= User.new # i.e., a guest user
     
+    can :destroy, Submission
     # set authorizations for different user roles
     ## Case Worker
     if user.role? :case_worker
@@ -13,6 +14,7 @@ class Ability
 
     ## Foster parent
     elsif user.role? :parent
+
       # foster parents can show and index categories
       can :index, Category
       can :show, Category

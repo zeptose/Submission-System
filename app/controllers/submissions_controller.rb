@@ -1,5 +1,5 @@
 class SubmissionsController < ApplicationController
-    before_action :set_submission, only: [:show, :edit, :destroy]
+    before_action :set_submission, only: [:show, :edit, :destroy, :update]
     before_action :check_login, only: [:show, :edit, :create]
     authorize_resource
   
@@ -49,21 +49,25 @@ class SubmissionsController < ApplicationController
       @assignment = @submission.assignment
       @parent = @assignment.parent
       @item = @assignment.item
-      if @submission
-        if @submission.destroy
-          flash[:notice] = "Successfully deleted submission of #{submission.assignment.item.name} from the system."
+
+      if @submission.destroy
+        flash[:notice] = "Successfully deleted submission of #{@submission.assignment.item.name} from the system."
+
+      else
+        flash[:notice] = "Unable to delete."
+        
+      end
+      if current_user.role?(:parent) 
+          redirect_to item_path(@item)
+      else 
           redirect_to parent_show_path(id: @submission.item.id, parent_id: @submission.parent.id)
-        else
-          flash[:notice] = "Unable to delete."
-          redirect_to submission_path(@submission)
-        end
       end 
     end
 
     
     private
       def set_submission
-        @submission = Submission.find_by(id: params[:id])
+        @submission = Submission.find(params[:id])
       end
       
       def submission_params

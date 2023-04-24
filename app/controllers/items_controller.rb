@@ -56,6 +56,7 @@ class ItemsController < ApplicationController
 
     def destroy
       @item = Item.find(params[:id])
+      @submission = @item.assignment.submission
       @category = @item.category
     
       begin

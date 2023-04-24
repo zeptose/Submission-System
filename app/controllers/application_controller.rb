@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
       flash[:error] = "You are not authorized to perform this action."
       redirect_to home_path
     end
-  
+
     # handle 404 errors with an exception as well
     rescue_from ActiveRecord::RecordNotFound do |exception|
       flash[:error] = "We apologize, but this information could not be found."
