@@ -1,6 +1,6 @@
 <div class="card">
     <div class="card-content">
-        <h4><%= "#{@item.name} Recent Submissions "%></h4>
+        <h4><%= "#{@item.name} Recent Submissions"%></h4>
         
         <table class = "striped highlight">
 
@@ -19,6 +19,15 @@
                     <% else %>
                         <td>No linked files.</td> 
                     <% end %>
+
+                    <% if !current_user.nil? && can?(:destroy, submission) && submission%>
+                        <td class="align_center">
+                        <%= link_to(submission_path(submission), method: :delete, data: { confirm: 'Are you sure you wish to delete this information?' }) do %>
+                            <i class="material-icons">delete</i>
+                        <% end %>
+                        </td>
+                    <% end %>
+
                 </tr>
                 <% end%>
             <% end %>
@@ -40,17 +49,3 @@
         
     </div>
 </div>
-    
-
-<% if current_user.role?(:parent) && can?(:destroy, submission) && submission%>
-  <%= link_to submission_path(submission), method: :delete, data: { confirm: "Are you sure you want to permanently delete this submission?" }, class: 'waves-effect waves-light btn btn-alert' do %>
-    <%= "Delete Submission" %>
-  <% end %>
-<% end %>
-
-
-<% if current_user.role?(:case_worker) && can?(:destroy, submission) && submission %>
-  <%= link_to submission_path(submission), method: :delete, data: { confirm: "Are you sure you want to permanently delete this submission?" }, class: 'waves-effect waves-light btn btn-alert' do %>
-    <%= "Delete Submission" %>
-  <% end %>
-<% end %>
