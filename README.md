@@ -4,13 +4,13 @@ This is a submission system built with Ruby on Rails, aimed at helping foster pa
 
 The project is currently includes the following features:
 
-Ability to create and manage submissions for a child
-Ability to upload and view documents related to the child's submissions
-Ability to add and manage notes for a child's submissions
-User authentication and authorization, with different access levels for case workers and foster parents
-Search functionality to quickly find submissions based on specific criteria
-Getting started
+1. Ability to create and manage submissions for a child 
+2. Ability to upload and view documents related to the child's submissions
+3. Ability to add and manage notes for a child's submissions
+4. User authentication and authorization, with different access levels for case workers and foster parents
+5. Search functionality to quickly find submissions based on specific criteria
 
+Getting started
 
 To view the deployed app go to: https://rook-cmuis.net/
 
