@@ -1,24 +1,30 @@
-# README
+README for Submission System
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a submission system built with Ruby on Rails, aimed at helping foster parents and case workers manage submissions for foster children. The system allows for the submission of documents and other important information pertaining to the foster child, making it easier for case workers and foster parents to keep track of the child's progress and any updates.
 
-Things you may want to cover:
+The project is currently includes the following features:
 
-* Ruby version
+1. Ability to create and manage submissions for a child 
+2. Ability to upload and view documents related to the child's submissions
+3. Ability to add and manage notes for a child's submissions
+4. User authentication and authorization, with different access levels for case workers and foster parents
+5. Search functionality to quickly find submissions based on specific criteria
 
-* System dependencies
+Getting started
 
-* Configuration
+To view the deployed app go to: https://rook-cmuis.net/
 
-* Database creation
+To get started with the Submission System locally, follow these steps:
 
-* Database initialization
+1. Clone the repo: git clone https://github.com/zeptose/Submission-System.git
+2. Run Bundle Install
+3. Migrate the Database: rails db:migrate
+4. launch rails server: with "rails server"
+4. open http://localhost:3000/ in your local browser 
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+Contributing
+If you'd like to contribute to the Submission System, please read our contribution guidelines before submitting a pull request.
 
-* Deployment instructions
-
-* ...
+License
+The Submission System is licensed under the MIT License. See the LICENSE file for more information.
