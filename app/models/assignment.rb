@@ -1,4 +1,7 @@
 class Assignment < ApplicationRecord
+
+  include AppHelpers::Validations
+
   belongs_to :item
   belongs_to :parent
   has_one :submission
@@ -16,7 +19,7 @@ class Assignment < ApplicationRecord
 
   #Method
   def parent_item_is_active_in_the_system
-    is_active_in_system(:category)
+    is_active_in_system(:parent)
     is_active_in_system(:item)
   end
 

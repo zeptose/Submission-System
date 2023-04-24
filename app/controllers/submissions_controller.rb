@@ -45,23 +45,25 @@ class SubmissionsController < ApplicationController
     end
   
     def destroy
+      set_submission
       @assignment = @submission.assignment
       @parent = @assignment.parent
       @item = @assignment.item
-
-      if @submission.destroy
-        flash[:notice] = "Successfully deleted submission of #{@submission.assignment.item.name} from the system."
-        redirect_to parent_show_path(id: @item.id, parent_id: @parent.id)
-      else
-        flash[:notice] = "Unable to delete."
-        redirect_to submission_path(@submission)
-      end
+      if @submission
+        if @submission.destroy
+          flash[:notice] = "Successfully deleted submission of #{submission.assignment.item.name} from the system."
+          redirect_to parent_show_path(id: @submission.item.id, parent_id: @submission.parent.id)
+        else
+          flash[:notice] = "Unable to delete."
+          redirect_to submission_path(@submission)
+        end
+      end 
     end
 
     
     private
       def set_submission
-        @submission = Submission.find(params[:id])
+        @submission = Submission.find_by(id: params[:id])
       end
       
       def submission_params

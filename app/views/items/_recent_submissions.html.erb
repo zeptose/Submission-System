@@ -32,9 +32,17 @@
             <% if !current_user.nil? && current_user.role?(:case_worker) %>
                 <%= link_to "Add a New Submission", new_submission_path(item_id: @item.id, parent_id: @parent.id), class: 'waves-effect waves-light btn btn-alert' %>
             <% elsif !current_user.nil? && current_user.role?(:parent) %>
-                <%= link_to "Add a New Submission", new_submission_path(item_id: @item.id), class: 'waves-effect waves-light btn btn-alert' %>
+                <%= link_to "Add a New Submission", new_submission_path(item_id: @item.id, parent_id: @current_user.parent.id), class: 'waves-effect waves-light btn btn-alert' %>
             <% end %>
         <% end %>
+
+        
         
     </div>
 </div>
+    
+<% if @submission.present? && @submission.assignment.present? && @submission.assignment.parent_id == current_user.parent.id %>
+    <%= link_to(eval("item_path(@submission.item.id)"), method: 'delete', data: {confirm: "Are you sure you want to permanently delete this submission?"}, class: 'waves-effect waves-light btn btn-alert') do %>
+      &nbsp;<%= "Delete Submission" %>
+    <% end %>
+<% end %>

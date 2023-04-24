@@ -1,4 +1,6 @@
 class Submission < ApplicationRecord
+  include AppHelpers::Deletions
+
   belongs_to :assignment
   has_one :parent, through: :assignment
   has_one :item, through: :assignment
