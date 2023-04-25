@@ -1,0 +1,33 @@
+<div class="card">
+        <div class="card-content">
+            <h4><%= "Complete Assigned Forms for: #{@parent.p1_last_name}, #{@parent.p1_first_name}"%> </h4>
+
+            <% if @complete_assignments.empty? %>
+                <p>There are no complete assignments at this time.</p>
+            <%else %>
+
+
+                <table class = "striped highlight">
+                    <thead>
+                        <th>Category Name</th>
+                        <th>Item Name</th>
+                        <th>Due Date</th>
+                        <th>Status</th>
+                        <th>Completion</th>
+                        
+                    </thead>
+                    <% for assignment in @complete_assignments %>
+                        
+                        <tr>
+                            <td><%= link_to "#{assignment.item.category.name}", category_path(assignment.item.category)%></td>
+                            <td><%= link_to "#{assignment.item.name}", parent_show_path(id: assignment.item.id, parent_id: assignment.parent.id) %> </td>
+                            <td><%= "#{assignment.due_date}" %> </td>
+                            <td><%= "#{assignment.updatestatus}" %> </td>
+                            <td style="color: #518458">Complete</td>
+                        </tr>
+                        
+                    <% end %>
+                </table>
+            <%end%>
+        </div>
+    </div>

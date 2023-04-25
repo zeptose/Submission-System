@@ -15,10 +15,10 @@ class Category < ApplicationRecord
     # Callbacks
     before_destroy do
         check_if_categories_have_items
-        if errors.present?
-          @destroyable = false
-          throw(:abort)
-        end
+        # if errors.present?
+        #   @destroyable = false
+        #   throw(:abort)
+        # end
     end
 
     after_update :inactive_categories_have_inactive_items

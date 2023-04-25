@@ -6,7 +6,9 @@ class Item < ApplicationRecord
 
 
   belongs_to :category
-  has_one_attached :file, dependent: :purge_later
+  has_many :submissions
+  has_many :assignments
+  has_one_attached :file
 
   # Scopes
   scope :alphabetical, -> { order(:name) }
@@ -16,9 +18,7 @@ class Item < ApplicationRecord
 
   validates :name, presence: true, uniqueness: { case_sensitive: false }
   validate :category_is_active_in_the_system, on: :create
-
-  # Callbacks
-  before_destroy :cannot_destroy_object
+  validates :due_date, presence: true
 
   private
     def category_is_active_in_the_system

@@ -1,0 +1,21 @@
+<div class="card">
+    <div class="card-content">
+        <h4><%= "#{@submission.date_completed} Submission: #{@submission.assignment.item.name}"%></h4>
+
+        <% if !@submission.nil? && !@submission.file.nil? %>
+            <b>File:</b> <%= link_to "#{@submission.filename}", rails_blob_path(@submission.file, disposition: "attachment") %> <br><br>
+        <% else %>
+            <b>File:</b> No linked files. <br><br>
+        <% end %>
+
+    </div>
+</div>
+
+<% if can?(:destroy, @submission) %>
+  <%= link_to submission_path(@submission), method: :delete, data: { confirm: "Are you sure you want to permanently delete this submission?" }, class: 'waves-effect waves-light btn btn-alert' do %>
+    <%= "Delete Submission" %>
+  <% end %>
+<% end %>
+
+
+

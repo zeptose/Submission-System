@@ -1,0 +1,32 @@
+<div class="card">
+    <div class="card-content">
+
+        <% there_is_incomplete = @assignments.any? { |assignment| assignment.item == @item && !assignment.completion }%>
+        
+        <% if there_is_incomplete %>
+            <div class = "completion_column_container">
+                <div class = "completion_column">
+                    <h4>Status </h4>
+                    <h4 style="color: #f04735">Incomplete</h4>
+                </div>
+                <div class = "completion_column">
+                    <% @incomplete_assignment = @assignments.find { |assignment| assignment.item == @item && !assignment.completion } %>
+                    <h4>Due Date</h4>
+                    <h4 style="color: black"><%= "#{@incomplete_assignment.due_date.strftime("%m/%d/%y")}" %></h4>
+                </div>
+            </div>
+        <% else %>
+            <h4>Status</h4>
+            <h4 style="color: #518458">Complete</h4>
+        <% end %>
+
+    </div>
+</div>
+
+<% if there_is_incomplete%>
+    <% if can?(:destroy, @incomplete_assignment) && controller.respond_to?(:destroy) %>
+        <%= link_to(eval("assignment_path(@incomplete_assignment)"), method: 'delete', data: {confirm: "Are you sure you want to permanently delete Assignment?"}, class: 'waves-effect waves-light btn btn-alert') do %>
+            &nbsp;<%= "Delete Assignment" %>
+        <% end %>
+    <% end %>
+<% end %>

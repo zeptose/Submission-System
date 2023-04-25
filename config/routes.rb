@@ -15,10 +15,24 @@ Rails.application.routes.draw do
    get 'logout', to: 'sessions#destroy', as: :logout
  
    resources :categories
-   resources :items, except: [:destroy, :index] # in the future, items should be destroyed if there are no submissions attached
+   resources :items, except: [:index] # in the future, items should be destroyed if there are no submissions attached
 
    resources :case_workers
-   resources :parents
+   
+   # access assignments and submissions for a given parent
+   resources :parents do
+    resources :assignments do
+      resources :submissions
+    end
+   end
+
+   resources :assignments
+   resources :submissions
+
+   #get 'parents/:id/assignments', to: 'assignment#index', as: :parent_assignments
+   #get 'parents/:id/assignments/:a_id', to: 'assignment#show', as: :parent_assignment
+   get 'items/:id/parent_show', to: 'items#parent_show', as: 'parent_show'
+   get 'categories/:id/item_show', to: 'categories#item_show', as: :item_show
 
    patch 'categories/:id/toggle_active_category', to: 'categories#toggle_active_category', as: :toggle_active_category
    patch 'items/:id/toggle_active_item', to: 'items#toggle_active_item', as: :toggle_active_item

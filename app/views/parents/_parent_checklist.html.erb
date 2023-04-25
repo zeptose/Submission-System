@@ -1,0 +1,41 @@
+
+<% if !current_user.nil? && current_user.role?(:case_worker) %>
+
+    <div class="card">
+        <div class="card-content">
+        
+            <h4><%= "#{@parent.p1_last_name}'s Checklist Categories"%> </h4>
+
+                <% if @parent.assignments.empty? %>
+                    <p>There are no active categories at this time because you have not been assigned anything to this parent.</p>
+                
+                <%else %>
+
+
+                    <table class = "striped highlight">
+                        <thead>
+                            <th>Category Name</th>
+                            <th>Number of Incomplete Assigned Items</th>
+                            <th>Completion</th>
+                        </thead>
+                        
+                        <% for category in @unique_assigned_categories %>
+                            <% if category.active?%>
+                                
+                                <tr>
+                                    <td><%= link_to "#{category.name}", item_show_path(category.id, parent_id: @parent.id)%></td>
+                                    <td><%= "#{@unique_item_count_by_category[category.id]}" %> </td>
+                                    <% if @categories_with_incomplete_assignments.exists?(category.id) %>
+                                        <td style="color: #f04735"><%= "Incomplete"%></td>
+                                    <% else %>
+                                        <td style="color: #518458"><%= "Complete"%></td>
+                                    <% end %>
+                                </tr>
+                            <% end %>
+                        <% end %>
+                    </table>
+                <%end%>
+
+        </div>
+    </div>
+ <%end%>

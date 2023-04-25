@@ -1,0 +1,11 @@
+<% if !current_user.nil? && current_user.role?(:case_worker) %>
+    <%= f.input :assignment_id, collection: Assignment.for_parent(params[:parent_id]).incomplete.chronological.map{|a| ["#{a.item.name}", a.id]}, include_blank: false %>
+    <%= f.input :filename, label_html: { class: 'active' } %>
+    <%= f.input :file, label_html: { class: 'active' } %>
+    <%= f.hidden_field :date_completed, :value => Date.current %>
+<% elsif !current_user.nil? && current_user.role?(:parent) %>
+    <%= f.input :assignment_id, collection: Assignment.for_parent(current_user.parent.id).incomplete.chronological.map{|a| ["#{a.item.name}", a.id]}, include_blank: false %>
+    <%= f.input :filename, label_html: { class: 'active' } %>
+    <%= f.input :file, label_html: { class: 'active' } %>
+    <%= f.hidden_field :date_completed, :value => Date.current %>
+<% end %>

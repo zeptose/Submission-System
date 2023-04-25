@@ -5,6 +5,7 @@ class Ability
     # set user to new User if not logged in
     user ||= User.new # i.e., a guest user
     
+    can :destroy, Submission
     # set authorizations for different user roles
     ## Case Worker
     if user.role? :case_worker
@@ -13,6 +14,7 @@ class Ability
 
     ## Foster parent
     elsif user.role? :parent
+
       # foster parents can show and index categories
       can :index, Category
       can :show, Category
@@ -40,18 +42,24 @@ class Ability
       end
       
       # they can see if an assignment belongs to them
-      # can :show, Assignment, fosterparent.id: user.customer.id
+      can :show, Assignment do |this_assignment|
+        my_assignments = user.parent.assignments.map(&:id) 
+        my_assignments.include? this_assignment.id
+      end
+
+      can :index, Assignment # controller to filter assignments to just foster parent
+
+      can :index, Submission  # controller to filter submissions to just foster parent
+      can :create, Submission  # whole point is to let customers submit files...
       
+      can :show, Submission do |this_submission|
+        my_submissions = user.parent.assignments.map(&:submission).compact
+        my_submissions.include? this_submission.id
+      end
 
-      # can :show, Assignment do |this_assignment|
-      #   my_assignments = user.fosterparent.assignments.map(&:id) 
-      #   my_assignments.include? this_assignment.id
-      # end
-
-      # can :index, Assignment # controller to filter assignments to just customer
-
-      # can :index, Submissions  # controller to filter submissions to just customer
-      # can :create, Submissions  # whole point is to let customers submit files...
+      can :show, Submission
+      can :update, Submission
+      can :destroy, Submission
 
     else # Guest account
 

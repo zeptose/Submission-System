@@ -1,0 +1,11 @@
+<% if !current_user.nil? && current_user.role?(:case_worker) %>
+    <%= render partial: "partials/index_structure", locals: {model_name: "assignment", 
+                                                            primary: "incomplete_parent_assignment_data", 
+                                                            secondary: "complete_parent_assignment_data",
+                                                            sidebar: nil} %>
+<% elsif !current_user.nil? && current_user.role?(:parent) %>
+    <%= render partial: "partials/index_structure", locals: {model_name: "assignment", 
+                                                            primary: "parent_assignment_data", 
+                                                            secondary: nil,
+                                                            sidebar: nil} %>
+<% end %>

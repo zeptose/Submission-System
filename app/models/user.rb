@@ -14,7 +14,6 @@ class User < ApplicationRecord
     # Scopes
     scope :by_role,      -> { order(:role) }
     scope :alphabetical, -> { order(:username) }
-    # scope :employees,    -> { where.not(role: 'customer') }
   
     # Validations
     validates :username, presence: true, uniqueness: { case_sensitive: false}

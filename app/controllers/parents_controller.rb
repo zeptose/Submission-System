@@ -41,6 +41,20 @@ class ParentsController < ApplicationController
   
     def show
       @parent = Parent.find(params[:id])
+      @unique_assigned_categories = Category.joins(items: :assignments).where(assignments: { parent_id: @parent.id }).distinct
+      # Fetch the unique item count by category
+      @unique_item_count_by_category = Category.joins(items: :assignments)
+                                                .where(assignments: { parent_id: @parent.id })
+                                                .select('categories.id, COUNT(DISTINCT items.id) as unique_item_count')
+                                                .group('categories.id')
+                                                .index_by(&:id)
+                                                .transform_values(&:unique_item_count)
+
+      # Fetch the list of categories with incomplete assignments
+      @categories_with_incomplete_assignments = Category.joins(items: :assignments)
+                                                        .where(assignments: { parent_id: @parent.id, completion: false })
+                                                        .distinct
+
     end
   
     def update
@@ -65,6 +79,10 @@ class ParentsController < ApplicationController
         flash[:notice] = "#{@parent.p1_last_name} family was made active"
         redirect_to parent_path(@parent)
       end
+    end
+
+    def assignments
+      @assignments = Assignment.for_parent(@parent.id)
     end
   
     private
