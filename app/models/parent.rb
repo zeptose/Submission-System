@@ -4,13 +4,13 @@ class Parent < ApplicationRecord
   include AppHelpers::Activeable::InstanceMethods
   extend AppHelpers::Activeable::ClassMethods
 
-  attr_accessor :username, :password, :password_confirmation, :role
+  attr_accessor :username, :password, :password_confirmation, :role, :greeting
   belongs_to :user
 
 
   # Scopes
   scope :alphabetical,  -> { order(:p1_last_name, :p1_first_name) }
-  scope :search, ->(term) { where('first_name LIKE ? OR lat_name LIKE ?', "#{term}%", "#{term}%") }
+  scope :search, ->(term) { where('first_name LIKE ? OR last_name LIKE ?', "#{term}%", "#{term}%") }
 
 
   # Validations
@@ -25,6 +25,7 @@ class Parent < ApplicationRecord
   # Callbacks
   before_save    -> { strip_nondigits_from(:phone_number) }
   before_update :deactive_user_if_parent_inactive
+  before_destroy -> { cannot_destroy_object() }
 
 
   private

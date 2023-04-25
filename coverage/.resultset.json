@@ -1,6 +1,55 @@
 {
   "Minitest": {
     "coverage": {
+      "/mnt/c/Users/annie/OneDrive/Documents/Submission-System/app/models/parent.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          null,
+          null,
+          null,
+          1,
+          1,
+          null,
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          1,
+          null,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          0,
+          0,
+          0,
+          null,
+          null,
+          null
+        ]
+      },
+      "/mnt/c/Users/annie/OneDrive/Documents/Submission-System/app/models/application_record.rb": {
+        "lines": [
+          1,
+          1,
+          null
+        ]
+      },
       "/mnt/c/Users/annie/OneDrive/Documents/Submission-System/app/models/user.rb": {
         "lines": [
           1,
@@ -43,54 +92,6 @@
           null,
           null,
           1,
-          null
-        ]
-      },
-      "/mnt/c/Users/annie/OneDrive/Documents/Submission-System/app/models/application_record.rb": {
-        "lines": [
-          1,
-          1,
-          null
-        ]
-      },
-      "/mnt/c/Users/annie/OneDrive/Documents/Submission-System/app/models/parent.rb": {
-        "lines": [
-          1,
-          1,
-          1,
-          1,
-          1,
-          null,
-          1,
-          1,
-          null,
-          null,
-          null,
-          1,
-          1,
-          null,
-          null,
-          null,
-          1,
-          1,
-          1,
-          null,
-          1,
-          null,
-          1,
-          null,
-          null,
-          1,
-          1,
-          null,
-          null,
-          1,
-          1,
-          0,
-          0,
-          0,
-          null,
-          null,
           null
         ]
       },
@@ -751,6 +752,6 @@
         }
       }
     },
-    "timestamp": 1682193074
+    "timestamp": 1682457785
   }
 }

@@ -13,12 +13,12 @@ class ParentScopeTest < ActiveSupport::TestCase
       assert_equal ["Corletti", "Egan", "Freeman"], Parent.alphabetical.all.map(&:last_name)
     end
 
-    should "show that there are four active customers and one inactive customer" do
+    should "show that there are 2 active parents and one inactive parent" do
       assert_equal ["Egan", "Freeman"], Parent.active.all.map(&:last_name).sort
       assert_equal ["Corletti"], Parent.inactive.all.map(&:last_name).sort
     end 
 
-    should "show that search scope exists for finding customers" do
+    should "show that search scope exists for finding parent" do
       assert_equal ["Freeman"], Parent.search('f').all.map(&:last_name).sort
       assert_equal ["Egan"], Parent.search('e').all.map(&:last_name).sort
     end

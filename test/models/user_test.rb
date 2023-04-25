@@ -84,7 +84,7 @@ class UserTest < ActiveSupport::TestCase
 
     "test alphabetical scope"
     should "have a working scope called alphabetical" do
-      assert_equal ["alex","mark","rachel"], User.alphabetical.all.map(&:username)
+      assert_equal ["admin", "alex","mark","rachel"], User.alphabetical.all.map(&:username)
     end
 
     #test employees scope
