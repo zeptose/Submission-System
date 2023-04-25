@@ -1,6 +1,10 @@
 <div class="card">
     <div class="card-content">
-        <h4><%= "#{@item.name} Recent Submissions by #{@parent.p1_last_name}, #{@parent.p1_first_name}"%></h4>
+        <% if !current_user.nil? && current_user.role?(:parent) %>
+            <h4><%= "#{@item.name} Recent Submissions"%></h4>
+        <% else %>
+            <h4><%= "#{@item.name} Recent Submissions by #{@parent.p1_last_name}, #{@parent.p1_first_name}"%></h4>
+        <% end %>
         
         <table class = "striped highlight">
 

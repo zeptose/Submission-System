@@ -23,6 +23,7 @@ class ItemsController < ApplicationController
   
     def show
       if current_user.role?(:parent)
+        @parent = current_user.parent
         # all assignments that have been assigned to the user
         @assignments = Assignment.for_parent(current_user.parent.id).paginate(page: params[:page]).per_page(15)
         
