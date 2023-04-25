@@ -10,7 +10,7 @@ class Parent < ApplicationRecord
 
   # Scopes
   scope :alphabetical,  -> { order(:p1_last_name, :p1_first_name) }
-  scope :search, ->(term) { where('first_name LIKE ? OR last_name LIKE ?', "#{term}%", "#{term}%") }
+  scope :search, ->(term) { where('p1_first_name LIKE ? OR p1_last_name LIKE ?', "#{term}%", "#{term}%") }
 
 
   # Validations
