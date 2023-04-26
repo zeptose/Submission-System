@@ -1,14 +1,13 @@
 README for Submission System
 
-This is a submission system built with Ruby on Rails, aimed at helping foster parents and case workers manage submissions for foster children. The system allows for the submission of documents and other important information pertaining to the foster child, making it easier for case workers and foster parents to keep track of the child's progress and any updates.
+This is a submission system built with Ruby on Rails, aimed at helping caseworkers better manage the application process for becoming a foster parent. The system allows for the submission of documents and other important information pertaining to the foster foster parent, making it easier for case workers and foster parents to keep track of important documents as well as deadlines.
+The project currently includes the following features:
+Ability to create new assignments and view assignments for foster parents
+Ability to create and manage submissions for a foster parent 
+Ability to add new categories and items as a caseworker
+Ability to create new foster parent accounts as a caseworker and foster parent
+Ability to view deadlines of upcoming assignments
 
-The project is currently includes the following features:
-
-1. Ability to create and manage submissions for a child 
-2. Ability to upload and view documents related to the child's submissions
-3. Ability to add and manage notes for a child's submissions
-4. User authentication and authorization, with different access levels for case workers and foster parents
-5. Search functionality to quickly find submissions based on specific criteria
 
 Getting started
 
