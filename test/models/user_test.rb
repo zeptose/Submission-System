@@ -13,7 +13,7 @@ class UserTest < ActiveSupport::TestCase
   should validate_uniqueness_of(:username).case_insensitive
 
   should allow_value("case_worker").for(:role)
-  should allow_value("foster_parent").for(:role)
+  should allow_value("parent").for(:role)
   should_not allow_value("bad").for(:role)
   should_not allow_value("hacker").for(:role) 
   should_not allow_value(10).for(:role)
