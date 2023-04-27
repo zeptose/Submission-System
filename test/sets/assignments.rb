@@ -1,16 +1,19 @@
 module Contexts
-    module Users
+    module Assignments
       # Context for both vet and assistant users
-      def create_foster_parent_users
-        @jordan = FactoryBot.create(:user, username: "jordan", role: "foster_parent", active: true)
-        @becca  = FactoryBot.create(:user, username: "becca", role: "foster_parent", active: true)
-        @connor = FactoryBot.create(:user, username: "connor", role: "foster_parent", active: false)
+      def create_assignments
+        @jordan_a1 = FactoryBot.create(:assignment, item: @PlacementRecord_i, parent: @f_jordan, 
+        case_worker: @c_alex, due_date: "05/17/2023", completion: true)
+        @becca_a1 = FactoryBot.create(:assignment, item: @TrainingLogs, parent: @f_becca, 
+        case_worker: @c_rachel, due_date: "06/17/2023", completion: true)
+        @connor_a1 = FactoryBot.create(:assignment, item: @PlacementRecord_i, parent: @f_connor, 
+        case_worker: @c_mark, due_date: "08/17/2023", completion: false)
       end
       
-      def destroy_foster_parent_users
-        @jordan.delete
-        @becca.delete
-        @connor.delete
+      def destroy_assignments
+        @jordan_a1.delete
+        @becca_a1.delete
+        @connor_a1.delete
       end
 
   
