@@ -1,12 +1,11 @@
 module Contexts
     module Assignments
-      # Context for both vet and assistant users
       def create_assignments
-        @jordan_a1 = FactoryBot.create(:assignment, item: @PlacementRecord_i, parent: @f_jordan, 
+        @jordan_a1 = FactoryBot.create(:assignment, item: @PlacementRecord_i, foster_parent: @f_jordan, 
         case_worker: @c_alex, due_date: "05/17/2023", completion: true)
-        @becca_a1 = FactoryBot.create(:assignment, item: @TrainingLogs, parent: @f_becca, 
+        @becca_a1 = FactoryBot.create(:assignment, item: @TrainingLogs, foster_parent: @f_becca, 
         case_worker: @c_rachel, due_date: "06/17/2023", completion: true)
-        @connor_a1 = FactoryBot.create(:assignment, item: @PlacementRecord_i, parent: @f_connor, 
+        @connor_a1 = FactoryBot.create(:assignment, item: @PlacementRecord_i, foster_parent: @f_connor, 
         case_worker: @c_mark, due_date: "08/17/2023", completion: false)
       end
       

@@ -3,7 +3,7 @@ module Contexts
         def create_categories
             @PlacementRecord_c = FactoryBot.create(:category, name: "Placement Record")
             # initial paperwork is not active, active: false
-            @InitialPaperwork = FactoryBot.create(:category, active: false) 
+            @InitialPaperwork = FactoryBot.create(:category, active: true) 
             @Certification = FactoryBot.create(:category, name: "Certification Section")
         end
 
