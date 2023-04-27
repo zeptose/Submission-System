@@ -1,6 +1,104 @@
 {
   "Minitest": {
     "coverage": {
+      "/mnt/c/Users/annie/OneDrive/Documents/Submission-System/app/models/submission.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          null,
+          null,
+          1,
+          null,
+          null,
+          1,
+          null,
+          null,
+          1,
+          1,
+          0,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/mnt/c/Users/annie/OneDrive/Documents/Submission-System/app/models/application_record.rb": {
+        "lines": [
+          1,
+          1,
+          null
+        ]
+      },
+      "/mnt/c/Users/annie/OneDrive/Documents/Submission-System/app/models/assignment.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          0,
+          0,
+          null,
+          null,
+          1,
+          0,
+          0,
+          0,
+          0,
+          null,
+          null,
+          null,
+          null,
+          1,
+          0,
+          0,
+          0,
+          0,
+          null,
+          null,
+          0,
+          0,
+          null,
+          null,
+          0,
+          0,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
       "/mnt/c/Users/annie/OneDrive/Documents/Submission-System/app/controllers/application_controller.rb": {
         "lines": [
           0,
@@ -835,75 +933,6 @@
         "branches": {
         }
       },
-      "/mnt/c/Users/annie/OneDrive/Documents/Submission-System/app/models/application_record.rb": {
-        "lines": [
-          0,
-          0,
-          0
-        ],
-        "branches": {
-        }
-      },
-      "/mnt/c/Users/annie/OneDrive/Documents/Submission-System/app/models/assignment.rb": {
-        "lines": [
-          0,
-          null,
-          0,
-          null,
-          0,
-          0,
-          0,
-          null,
-          null,
-          0,
-          0,
-          0,
-          0,
-          null,
-          null,
-          0,
-          0,
-          0,
-          null,
-          null,
-          0,
-          0,
-          0,
-          0,
-          null,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          null,
-          0,
-          0,
-          0,
-          0,
-          0,
-          null,
-          null,
-          0,
-          0,
-          null,
-          0,
-          0,
-          0,
-          0,
-          null,
-          0,
-          null,
-          0,
-          null,
-          0
-        ],
-        "branches": {
-        }
-      },
       "/mnt/c/Users/annie/OneDrive/Documents/Submission-System/app/models/case_worker.rb": {
         "lines": [
           0,
@@ -1061,41 +1090,6 @@
         "branches": {
         }
       },
-      "/mnt/c/Users/annie/OneDrive/Documents/Submission-System/app/models/submission.rb": {
-        "lines": [
-          0,
-          null,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          null,
-          0,
-          null,
-          null,
-          0,
-          null,
-          null,
-          0,
-          null,
-          null,
-          0,
-          0,
-          0,
-          0,
-          null,
-          0,
-          0,
-          0,
-          0,
-          null,
-          null
-        ],
-        "branches": {
-        }
-      },
       "/mnt/c/Users/annie/OneDrive/Documents/Submission-System/app/models/user.rb": {
         "lines": [
           0,
@@ -1143,6 +1137,6 @@
         }
       }
     },
-    "timestamp": 1682565368
+    "timestamp": 1682565858
   }
 }
