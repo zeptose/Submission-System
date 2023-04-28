@@ -11,6 +11,8 @@ class AssignmentMethodTest < ActiveSupport::TestCase
             create_caseworkers
             create_categories
             create_items
+            create_submissions
+            create_assignments
         end
 
         should "verify that the parent item is active in the system" do

@@ -6,10 +6,11 @@ class SubmissionCallbackTest < ActiveSupport::TestCase
             # users need to be created before parents
             # categories need to be created before items and submissions
             create_foster_parent_users
+            create_admin_users
             create_parents
+            create_caseworkers
             create_categories
             create_items
-            create_submissions
         end
 
         should "mark assignment complete if submission is submitted" do
